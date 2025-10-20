@@ -1,0 +1,70 @@
+.root{
+    -fx-font-size:20px;
+    -fx-font-weight: bold;
+}
+
+#pnlPainelPrincipal{
+    -fx-background-color: #64dfbe;
+}
+
+.button{
+    -fx-background-color: #64dfbe;
+    -fx-text-fill:white;
+    -fx-background-radius: 20;
+}
+
+.button:hover{
+    -fx-background-color: #91ebd2;
+}
+
+.label{
+    -fx-text-fill:white;
+}
+
+#tfPesquisar{
+    -fx-background-radius: 20;
+}
+
+#pnlSuperior{
+    -fx-background-color: #64dfbe;
+}
+
+#btnMedicamentos{
+    -fx-background-color: #c6f4e7;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnMedicamentos:hover{
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#btnReciclagem{
+    -fx-background-color: #c6f4e7;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnReciclagem:hover{
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#btnAgendar{
+    -fx-background-color: #c6f4e7;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnAgendar:hover{
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#btnSaibaMais{
+    -fx-background-color: #c6f4e7;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnSaibaMais:hover{
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}

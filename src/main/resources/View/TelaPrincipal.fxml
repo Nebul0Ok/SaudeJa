@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="pnlPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PrincipalController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox fx:id="pnlPainelPrincipal" alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="2.0" prefWidth="1024.0">
+               <children>
+                  <Button fx:id="btnMinMax" mnemonicParsing="false" onMouseClicked="#btnMax" text="□" />
+                  <Button fx:id="btnFechar" mnemonicParsing="false" onMouseClicked="#btnClose" text="X" />
+               </children>
+            </HBox>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <HBox fx:id="pnlSuperior" alignment="CENTER" prefHeight="80.0" prefWidth="1024.0" spacing="35.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnMais" mnemonicParsing="false" text="Mais" />
+                        <Label text="Saúde Já" />
+                        <TextField fx:id="tfPesquisar" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="349.0" promptText="Pesquisar" />
+                        <Button fx:id="btnCarrinho" mnemonicParsing="false" text="Carrinho" />
+                        <Label fx:id="lblUsername" text="Nome de Usuario" />
+                        <Button fx:id="btnIcone" mnemonicParsing="false" text="Icone" />
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <HBox alignment="TOP_CENTER" prefHeight="33.0" prefWidth="1024.0" spacing="40.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnMedicamentos" mnemonicParsing="false" text="Medicamentos" />
+                        <Button fx:id="btnReciclagem" mnemonicParsing="false" text="Reciclagem" />
+                        <Button fx:id="btnAgendar" mnemonicParsing="false" text="Agendar Consulta" />
+                        <Button fx:id="btnSaibaMais" mnemonicParsing="false" text="Saiba Mais" />
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
+               </center>
+            </BorderPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
