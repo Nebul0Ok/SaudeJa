@@ -16,6 +16,9 @@ public class Main extends Application {
         Scene TelaPrincipal = new Scene(root);
         TelaPrincipal.getStylesheets().add(getClass().getResource("/View/TelaPrincipal.css").toExternalForm());
 
+        primaryStage.setMaxHeight(576);
+        primaryStage.setMaxWidth(1024);
+
         primaryStage.setFullScreen(true);
         primaryStage.setScene(TelaPrincipal);
         primaryStage.show();
