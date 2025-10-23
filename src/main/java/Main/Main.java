@@ -12,9 +12,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        Parent root = FXMLLoader.load(getClass().getResource("/View/TelaPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/TelaLogin/TelaLogin.fxml"));
         Scene TelaPrincipal = new Scene(root);
-        TelaPrincipal.getStylesheets().add(getClass().getResource("/View/TelaPrincipal.css").toExternalForm());
+        TelaPrincipal.getStylesheets().add(getClass().getResource("/TelaLogin/TelaLogin.css").toExternalForm());
 
         primaryStage.setMaxHeight(576);
         primaryStage.setMaxWidth(1024);
@@ -24,9 +24,8 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static void main (String[] args){
+    public static void main(String[] args){
     launch(args);
-
     }
 
 }

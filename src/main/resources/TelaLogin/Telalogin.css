@@ -1,0 +1,36 @@
+#pnlBackground{
+    -fx-background-color:#64dfbe;
+}
+
+.label{
+    -fx-font-weight:bold;
+    -fx-font-size:14;
+}
+
+#pnlLoginPanel{
+    -fx-background-color:#e1dfd4;
+    -fx-background-radius:10;
+}
+
+#lblCadastrar{
+    -fx-font-size:20;
+    -fx-font-weight:bold;
+    -fx-text-fill:#2e437c;
+}
+
+.text-field{
+    -fx-background-radius:6;
+}
+
+#btnCadastro{
+    -fx-font-size:15;
+    -fx-font-weight:bold;
+    -fx-background-color:#2e437c;
+    -fx-text-fill: white;
+    -fx-background-radius:10;
+}
+
+#btnCadastro:hover{
+    -fx-background-color:white;
+    -fx-text-fill:#2e437c;
+}
