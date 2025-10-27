@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" stylesheets="@Telalogin.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TelaLoginController">
    <children>
       <BorderPane fx:id="pnlBackground" prefHeight="200.0" prefWidth="200.0" stylesheets="@Telalogin.css">
          <center>
-            <VBox fx:id="pnlLoginPanel" maxHeight="450.0" maxWidth="400.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="pnlLoginPanel" maxHeight="478.0" maxWidth="400.0" prefHeight="478.0" prefWidth="400.0" BorderPane.alignment="CENTER">
                <children>
                   <Label fx:id="lblCadastrar" text="Cadastrar">
                      <VBox.margin>
@@ -27,7 +27,7 @@
                         <Insets bottom="5.0" left="20.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="350.0" prefHeight="25.0" prefWidth="351.0">
+                  <TextField fx:id="txtNome" maxWidth="350.0" prefHeight="25.0" prefWidth="351.0">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
@@ -37,7 +37,7 @@
                         <Insets bottom="5.0" left="20.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="350.0" prefHeight="25.0" prefWidth="351.0">
+                  <TextField fx:id="txtEmail" maxWidth="350.0" prefHeight="25.0" prefWidth="351.0">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
@@ -47,12 +47,12 @@
                         <Insets bottom="5.0" left="20.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="350.0" prefHeight="25.0" prefWidth="351.0">
+                  <TextField fx:id="txtSenha" maxWidth="350.0" prefHeight="25.0" prefWidth="351.0">
                      <VBox.margin>
                         <Insets left="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button fx:id="btnCadastro" mnemonicParsing="false" text="Cadastrar-se">
+                  <Button fx:id="btnCadastro" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadastrar-se">
                      <VBox.margin>
                         <Insets left="140.0" top="60.0" />
                      </VBox.margin>
@@ -60,8 +60,42 @@
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
                   </Button>
-               </children></VBox>
+                  <Label text="ou">
+                     <VBox.margin>
+                        <Insets left="195.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="btnLogin" mnemonicParsing="false" text="Login">
+                     <padding>
+                        <Insets bottom="20.0" left="45.0" right="45.0" top="20.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="140.0" top="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></VBox>
          </center>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="287.0" spacing="20.0">
+               <BorderPane.margin>
+                  <Insets right="-235.0" top="50.0" />
+               </BorderPane.margin>
+               <children>
+                  <Label fx:id="lblQuemEstaLogando" text="Quem está se cadastrando?" />
+                  <Label fx:id="lblUserAtual" text="Cliente" />
+                  <Button fx:id="btnCliente" mnemonicParsing="false" onAction="#btnClienteClick" prefWidth="100.0" text="Cliente">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btnMedico" mnemonicParsing="false" onAction="#btnMedicoClick" prefWidth="100.0" text="Médico" />
+                  <Button fx:id="btnComerciante" mnemonicParsing="false" onAction="#btnComercianteClick" prefWidth="100.0" text="Comerciante" />
+               </children>
+            </VBox>
+         </left>
       </BorderPane>
    </children>
 </StackPane>

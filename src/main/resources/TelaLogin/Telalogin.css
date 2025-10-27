@@ -34,3 +34,39 @@
     -fx-background-color:white;
     -fx-text-fill:#2e437c;
 }
+
+#btnLogin{
+    -fx-font-size:15;    
+    -fx-background-color:#1a56a8;
+    -fx-font-weight:bold;
+    -fx-text-fill: white;
+    -fx-background-radius:10;    
+}
+
+#btnLogin:hover{
+    -fx-background-color:white;
+    -fx-text-fill:#2e437c;
+}
+
+#lblUserAtual{
+    -fx-text-fill:white;
+}
+
+#lblQuemEstaLogando{
+    -fx-font-size:18;
+}    
+
+#btnCliente{
+    -fx-background-color: #1a56a8;
+    -fx-text-fill:white;
+}
+
+#btnMedico{
+    -fx-background-color: #1a56a8;
+    -fx-text-fill:white;
+}
+
+#btnComerciante{
+    -fx-background-color: #1a56a8;
+    -fx-text-fill:white;
+}

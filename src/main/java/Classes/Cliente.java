@@ -2,9 +2,9 @@ package Classes;
 
 public class Cliente {
     int id;
-    String nome;
-    String senha;
-    String email;
+    public String nome;
+    public String senha;
+    public String email;
 
     public Cliente(int id, String nome, String senha, String email) {
 	this.id = id;
