@@ -1,6 +1,10 @@
 package Controller;
 
 import Classes.Cliente;
+import DAO.ClienteDao;
+import DAO.ComercianteDAO;
+import DAO.MedicoDAO;
+import Utility.HashSenha;
 import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +19,8 @@ import javafx.scene.control.*;
 public class TelaLoginController implements Initializable {
     private String usuario = "cliente";
     
-     @FXML
+
+    @FXML
     private Button btnCadastro;
 
     @FXML
@@ -34,6 +39,9 @@ public class TelaLoginController implements Initializable {
     private Label lblCadastrar;
 
     @FXML
+    private Label lblEspecifico;
+
+    @FXML
     private Label lblQuemEstaLogando;
 
     @FXML
@@ -49,6 +57,9 @@ public class TelaLoginController implements Initializable {
     private TextField txtEmail;
 
     @FXML
+    private TextField txtEspecifico;
+
+    @FXML
     private TextField txtNome;
 
     @FXML
@@ -59,10 +70,24 @@ public class TelaLoginController implements Initializable {
 	String nome = txtNome.getText();
 	String email = txtEmail.getText();
 	String senha = txtSenha.getText();
+	String especifico = txtEspecifico.getText();
+	boolean cadastro = true;
+	senha = HashSenha.senhaHash(senha);
 	
 	Cliente cliente = new Cliente(nome, senha, email);
 	
-	System.out.printf("%s%n%s%n%s", cliente.nome, cliente.email, cliente.senha);
+	if(usuario.equals("cliente")){
+	    cadastro = ClienteDao.cadastrar(nome, email, senha);
+	    System.out.println("Cliente Cadastrado");
+	}
+	else if(usuario.equals("medico")){
+	    cadastro = MedicoDAO.cadastrar(nome, email, especifico, senha);
+	    System.out.println("Medico Cadastrado");
+	}
+	else{
+	    cadastro = ComercianteDAO.cadastrar(nome, email, especifico, senha);
+	    System.out.println("Comerciante Cadastrado");
+	}
 	
     }
     
@@ -70,25 +95,51 @@ public class TelaLoginController implements Initializable {
     void btnClienteClick(ActionEvent event) {
 	usuario = "cliente";
 	lblUserAtual.setText("Cliente");
+	txtNome.setText(null);
+	txtEmail.setText(null);
+	txtSenha.setText(null);
+	txtEspecifico.setText(null);
+	
+	txtEspecifico.setVisible(false);
+	lblEspecifico.setVisible(false);
     }
 
     @FXML
     void btnComercianteClick(ActionEvent event) {
 	usuario = "comerciante";
 	lblUserAtual.setText("Comerciante");
+	
+	txtNome.setText(null);
+	txtEmail.setText(null);
+	txtSenha.setText(null);
+	txtEspecifico.setText(null);
+	
+	lblEspecifico.setText("CNPJ:");
+	
+	txtEspecifico.setVisible(true);
+	lblEspecifico.setVisible(true);
     }
 
     @FXML
     void btnMedicoClick(ActionEvent event) {
 	usuario = "medico";
 	lblUserAtual.setText("Medico");
+	txtNome.setText(null);
+	txtEmail.setText(null);
+	txtSenha.setText(null);
+	txtEspecifico.setText(null);
+	lblEspecifico.setText("CRM:");
+	
+	txtEspecifico.setVisible(true);
+	lblEspecifico.setVisible(true);
     }
 
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+	txtEspecifico.setVisible(false);
+	lblEspecifico.setVisible(false);
     }    
     
 }

@@ -10,7 +10,7 @@ public class MedicoDAO {
     
     static String url = "jdbc:sqlite:BancoDados.db";
     
-    public boolean cadastrar(String nome, String email, String crm, String senha) {
+    public static boolean cadastrar(String nome, String email, String crm, String senha) {
 	Connection conexao = null;
 	PreparedStatement comando = null;
 	ResultSet resultado = null;

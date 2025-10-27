@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -52,27 +53,34 @@
                         <Insets left="20.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button fx:id="btnCadastro" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadastrar-se">
+                  <Label fx:id="lblEspecifico" text="CRM:">
                      <VBox.margin>
-                        <Insets left="140.0" top="60.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </padding>
-                  </Button>
-                  <Label text="ou">
-                     <VBox.margin>
-                        <Insets left="195.0" top="10.0" />
+                        <Insets bottom="5.0" left="20.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Button fx:id="btnLogin" mnemonicParsing="false" text="Login">
-                     <padding>
-                        <Insets bottom="20.0" left="45.0" right="45.0" top="20.0" />
-                     </padding>
+                  <TextField fx:id="txtEspecifico" maxWidth="350.0" prefHeight="25.0" prefWidth="351.0">
                      <VBox.margin>
-                        <Insets left="140.0" top="10.0" />
+                        <Insets left="20.0" />
                      </VBox.margin>
-                  </Button>
+                  </TextField>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnCadastro" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadastrar-se">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </Button>
+                        <Label text="ou" />
+                        <Button fx:id="btnLogin" mnemonicParsing="false" text="Login">
+                           <padding>
+                              <Insets bottom="20.0" left="45.0" right="45.0" top="20.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets top="60.0" />
+                     </padding>
+                  </HBox>
                </children>
                <BorderPane.margin>
                   <Insets />
