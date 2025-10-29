@@ -76,7 +76,7 @@ public class MedicoDAO {
 	return true;
     }
     
-    public boolean sessaoLogin(String email, String senha) {
+    public static boolean sessaoLogin(String email, String senha) {
 	Connection conexao = null;
 	PreparedStatement comando = null;
 	ResultSet resultado = null;

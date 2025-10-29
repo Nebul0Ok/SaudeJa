@@ -1,0 +1,98 @@
+#pnlBackground{
+    -fx-background-color: linear-gradient(to bottom, #64DFBE, #309693);
+}
+
+.label{
+    -fx-font-weight:bold;
+    -fx-font-size:14;
+}
+
+#pnlLoginPanel{
+    -fx-background-color:#e1dfd4;
+    -fx-background-radius:10;
+}
+
+#lblCadastrar{
+    -fx-font-size:20;
+    -fx-font-weight:bold;
+    -fx-text-fill:#2e437c;
+}
+
+.text-field{
+    -fx-background-radius:6;
+}
+
+#btnCadastro{
+    -fx-font-size:15;
+    -fx-font-weight:bold;
+    -fx-background-color:#2e437c;
+    -fx-text-fill: white;
+    -fx-background-radius:10;
+}
+
+#btnCadastro:hover{
+    -fx-background-color:white;
+    -fx-text-fill:#2e437c;
+}
+
+#btnLogin{
+    -fx-font-size:15;    
+    -fx-background-color:#1a56a8;
+    -fx-font-weight:bold;
+    -fx-text-fill: white;
+    -fx-background-radius:10;    
+}
+
+#btnLogin:hover{
+    -fx-background-color:white;
+    -fx-text-fill:#2e437c;
+}
+
+#lblUserAtual{
+    -fx-font-size:30;
+    -fx-font-weight:bold;
+    -fx-text-fill:white;
+}
+
+#lblQuemEstaLogando{
+    -fx-font-size:18;
+}    
+
+#btnCliente{
+    -fx-background-radius:7;
+    -fx-font-size: 15;
+    -fx-font-weight:bold;
+    -fx-background-color: #1a56a8;
+    -fx-text-fill:white;
+}
+
+#btnMedico{
+    -fx-background-radius:7;    
+    -fx-font-size: 15;
+    -fx-font-weight:bold;
+    -fx-background-color: #1a56a8;
+    -fx-text-fill:white;
+}
+
+#btnComerciante{
+    -fx-background-radius:7;
+    -fx-font-size: 15;
+    -fx-font-weight:bold;
+    -fx-background-color: #1a56a8;
+    -fx-text-fill:white;
+}
+
+#btnCliente:hover{
+    -fx-background-color: white;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnMedico:hover{
+    -fx-background-color: white;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnComerciante:hover{
+    -fx-background-color: white;
+    -fx-text-fill:#1a56a8;
+}

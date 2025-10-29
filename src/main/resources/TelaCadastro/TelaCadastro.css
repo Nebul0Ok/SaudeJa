@@ -1,5 +1,5 @@
 #pnlBackground{
-    -fx-background-color:#64dfbe;
+    -fx-background-color: linear-gradient(to bottom, #64DFBE, #309693);
 }
 
 .label{
@@ -49,6 +49,8 @@
 }
 
 #lblUserAtual{
+    -fx-font-size:30;
+    -fx-font-weight:bold;
     -fx-text-fill:white;
 }
 
@@ -57,16 +59,40 @@
 }    
 
 #btnCliente{
+    -fx-background-radius:7;
+    -fx-font-size: 15;
+    -fx-font-weight:bold;
     -fx-background-color: #1a56a8;
     -fx-text-fill:white;
 }
 
 #btnMedico{
+    -fx-background-radius:7;    
+    -fx-font-size: 15;
+    -fx-font-weight:bold;
     -fx-background-color: #1a56a8;
     -fx-text-fill:white;
 }
 
 #btnComerciante{
+    -fx-background-radius:7;
+    -fx-font-size: 15;
+    -fx-font-weight:bold;
     -fx-background-color: #1a56a8;
     -fx-text-fill:white;
+}
+
+#btnCliente:hover{
+    -fx-background-color: white;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnMedico:hover{
+    -fx-background-color: white;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnComerciante:hover{
+    -fx-background-color: white;
+    -fx-text-fill:#1a56a8;
 }
