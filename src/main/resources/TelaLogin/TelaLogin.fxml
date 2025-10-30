@@ -54,7 +54,7 @@
                            <padding>
                               <Insets left="15.0" right="15.0" />
                            </padding></Label>
-                        <Button fx:id="btnCadastro" mnemonicParsing="false" text="Cadastrar-se">
+                        <Button fx:id="btnCadastro" mnemonicParsing="false" onAction="#btnClickCadastrar" text="Cadastrar-se">
                            <padding>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </padding>

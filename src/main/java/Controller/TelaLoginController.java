@@ -4,6 +4,7 @@ import DAO.ClienteDao;
 import DAO.ComercianteDAO;
 import DAO.MedicoDAO;
 import Utility.HashSenha;
+import Utility.SceneSwitch;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,7 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-public class TelaLoginController {
+public class TelaLoginController extends BaseController{
     
     private String usuario = "cliente";
 
@@ -79,14 +80,27 @@ public class TelaLoginController {
 	if(usuario.equals("cliente")){
 	    cadastro = ClienteDao.sessaoLogin(email, senha);
 	    System.out.println("Cliente Logado");
+	    
+	    if(cadastro){
+		sceneSwitch.telaPrincipal();
+	    }
+	    
 	}
 	else if(usuario.equals("medico")){
 	    cadastro = MedicoDAO.sessaoLogin(email, senha);
 	    System.out.println("Medico Logado");
+	    
+	    if(cadastro){
+		sceneSwitch.telaPrincipal();
+	    }
 	}
 	else{
 	    cadastro = ComercianteDAO.sessaoLogin(email, senha);
 	    System.out.println("Comerciante Logado");
+	    
+	    if(cadastro){
+		sceneSwitch.telaPrincipal();
+	    }
 	}
 	
     }
@@ -98,4 +112,10 @@ public class TelaLoginController {
 	txtEmail.setText("");
 	txtSenha.setText("");		
     }
+    
+        @FXML
+    void btnClickCadastrar(ActionEvent event) {
+	    sceneSwitch.telaCadastro();
+    }
+    
 }

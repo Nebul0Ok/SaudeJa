@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class PrincipalController {
+public class PrincipalController extends BaseController{
 
     @FXML
     private Button btnAgendar;

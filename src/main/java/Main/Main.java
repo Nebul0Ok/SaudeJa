@@ -1,6 +1,7 @@
 package Main;
 
 import Controller.TelaCadastroController;
+import Utility.SceneSwitch;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,22 +13,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 	
-	String urlTelaLoginfxml ="/TelaLogin/TelaLogin.fxml";
-	String urlTelaLogincss ="/TelaLogin/TelaLogin.css";
-	String urlTelaCadastrofxml="/TelaCadastro/TelaCadastro.fxml";
-	String urlTelaCadastrocss="/TelaCadastro/TelaCadastro.css";
+	SceneSwitch sceneSwitch = new SceneSwitch(primaryStage);
 	
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        Parent root = FXMLLoader.load(getClass().getResource(urlTelaLoginfxml));
-        Scene TelaPrincipal = new Scene(root);
-        TelaPrincipal.getStylesheets().add(getClass().getResource(urlTelaLogincss).toExternalForm());
-
-        primaryStage.setMaxHeight(576);
-        primaryStage.setMaxWidth(1024);
 
         primaryStage.setFullScreen(false);
 	primaryStage.setResizable(false);
-        primaryStage.setScene(TelaPrincipal);
+
+	sceneSwitch.telaLogin();
+	
         primaryStage.show();
     }
 

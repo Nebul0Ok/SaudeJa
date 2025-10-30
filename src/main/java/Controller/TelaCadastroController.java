@@ -16,7 +16,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.*;
 
-public class TelaCadastroController implements Initializable {
+public class TelaCadastroController extends BaseController implements Initializable {
 
     private String usuario = "cliente";    
 
@@ -132,6 +132,11 @@ public class TelaCadastroController implements Initializable {
 	
 	txtEspecifico.setVisible(true);
 	lblEspecifico.setVisible(true);
+    }
+    
+    @FXML
+    void btnClickLogin(ActionEvent event){
+	sceneSwitch.telaLogin();
     }
 
     
