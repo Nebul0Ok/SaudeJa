@@ -1,18 +1,23 @@
 package Controller;
 
+import Classes.Card;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class PrincipalController extends BaseController{
+public class PrincipalController extends BaseController implements Initializable{
 
     @FXML
     private Button btnAgendar;
@@ -72,10 +77,6 @@ public class PrincipalController extends BaseController{
 
         @FXML
     void btnMedClickar(MouseEvent event) {
-        Rectangle ret = new Rectangle(100,100, 200,200);
-        ret.setFill(Color.BLUE);
-        ret.setStroke(Color.BLACK);
-        pnlContent.getChildren().add(ret);
     }
 
     @FXML
@@ -92,5 +93,23 @@ public class PrincipalController extends BaseController{
     void btnSaibaClickar(MouseEvent event) {
 
     }
+    
+    public void initialize(URL url, ResourceBundle rb) {
+	
+	pnlContent.setSpacing(10);
+	
+	Card card1 = new Card();
+	VBox card1Teste = card1.cardGen("Ibuprofeno", "/imagemRemedio/ibuprofeno.png");
+	pnlContent.getChildren().add(card1Teste);
+	
+	Card card2 = new Card();
+	VBox card2Teste = card2.cardGen("Dipirona", "/imagemRemedio/dipirona.png");
+	pnlContent.getChildren().add(card2Teste);
+	
+	Card card3 = new Card();
+	VBox card3Teste = card3.cardGen("Amoxicilina", "/imagemRemedio/amoxicilina.png");
+	pnlContent.getChildren().add(card3Teste);
+	
+    } 
 
 }

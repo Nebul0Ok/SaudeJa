@@ -30,14 +30,10 @@
 }
 
 #btnMedicamentos{
-    -fx-background-color: #c6f4e7;
-    -fx-text-fill:#1a56a8;
-}
-
-#btnMedicamentos:hover{
     -fx-background-color:#1a56a8;
     -fx-text-fill:#c6f4e7;
 }
+
 
 #btnReciclagem{
     -fx-background-color: #c6f4e7;

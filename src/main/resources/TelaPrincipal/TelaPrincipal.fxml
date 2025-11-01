@@ -46,7 +46,10 @@
                   </HBox>
                </center>
                <bottom>
-                  <HBox fx:id="pnlContent" prefHeight="427.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+                  <HBox fx:id="pnlContent" prefHeight="405.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets left="25.0" right="25.0" top="30.0" />
+                     </BorderPane.margin></HBox>
                </bottom>
             </BorderPane>
          </children>
