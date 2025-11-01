@@ -1,24 +1,23 @@
 package Controller;
 
-import Classes.Card;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class PrincipalController extends BaseController implements Initializable{
-
+public class TelaReciclagem extends BaseController implements Initializable{
+    
     boolean isFS = true;
     
     @FXML
@@ -49,6 +48,15 @@ public class PrincipalController extends BaseController implements Initializable
     private Button btnSaibaMais;
 
     @FXML
+    private ImageView ivMapa;
+
+    @FXML
+    private Label lblDescricao;
+
+    @FXML
+    private Label lblReciclagem;
+
+    @FXML
     private Label lblUsername;
 
     @FXML
@@ -62,18 +70,24 @@ public class PrincipalController extends BaseController implements Initializable
 
     @FXML
     private TextField tfPesquisar;
+    
+    @FXML
+    void btnClickMedicamentos(ActionEvent event) {
+	sceneSwitch.telaPrincipal();
+    }
 
     @FXML
-    private HBox pnlContent;
+    void btnAgendClickar(MouseEvent event) {
+
+    }
 
     @FXML
     void btnClose(MouseEvent event) {
-        Platform.exit();
+	Platform.exit();
     }
 
     @FXML
     void btnMax(MouseEvent event) {
-	
 	if(isFS == true){
 	    Stage stage = (Stage) btnMinMax.getScene().getWindow();
 	    stage.setFullScreen(false);
@@ -83,44 +97,20 @@ public class PrincipalController extends BaseController implements Initializable
 	    stage.setFullScreen(true);
 	    isFS = true;
 	}
-	
-    }
-
-    @FXML
-    void btnMedClickar(MouseEvent event) {
     }
 
     @FXML
     void btnRecClickar(MouseEvent event) {
-	sceneSwitch.telaReciclagem();
-    }
-
-    @FXML
-    void btnAgendClickar(MouseEvent event) {
 
     }
 
     @FXML
     void btnSaibaClickar(MouseEvent event) {
 
-    }
-    
-    public void initialize(URL url, ResourceBundle rb) {
-	
-	pnlContent.setSpacing(10);
-	
-	//Spawna os cards quando a tela abre pela primeira vez
-	Card card1 = new Card();
-	VBox card1Teste = card1.cardGen("Ibuprofeno", "/imagemRemedio/ibuprofeno.png");
-	pnlContent.getChildren().add(card1Teste);
-	
-	Card card2 = new Card();
-	VBox card2Teste = card2.cardGen("Dipirona", "/imagemRemedio/dipirona.png");
-	pnlContent.getChildren().add(card2Teste);
-	
-	Card card3 = new Card();
-	VBox card3Teste = card3.cardGen("Amoxicilina", "/imagemRemedio/amoxicilina.png");
-	pnlContent.getChildren().add(card3Teste);
-    } 
+    }  
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+	Image mapa = new Image("/Placeholders/");
+    }
 }

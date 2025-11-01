@@ -48,6 +48,15 @@ public class SceneSwitch {
     
     public void telaPrincipal(){
 	newSc("/TelaPrincipal/TelaPrincipal.fxml", "/TelaPrincipal/TelaPrincipal.css");
+	stage.setFullScreenExitHint("");
+	stage.setFullScreen(true);
+    }
+    
+    public void telaReciclagem(){
+	newSc("/TelaReciclagem/TelaReciclagem.fxml", "/TelaReciclagem/TelaReciclagem.css");
+	stage.setFullScreenExitHint("");
+	stage.setFullScreen(true);
+	
     }
     
     

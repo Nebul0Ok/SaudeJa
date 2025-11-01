@@ -20,8 +20,9 @@ public class Main extends Application {
         primaryStage.setFullScreen(false);
 	primaryStage.setResizable(false);
 
-	sceneSwitch.telaPrincipal();
+	sceneSwitch.telaLogin();
 	
+	primaryStage.centerOnScreen();
         primaryStage.show();
     }
 

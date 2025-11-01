@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="pnlPrincipal" maxHeight="576.0" maxWidth="1024.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" stylesheets="@TelaReciclagem.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TelaReciclagem">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox fx:id="pnlPainelPrincipal" alignment="TOP_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="2.0" prefWidth="1024.0">
+               <children>
+                  <Button fx:id="btnMinMax" mnemonicParsing="false" onMouseClicked="#btnMax" text="□" />
+                  <Button fx:id="btnFechar" mnemonicParsing="false" onMouseClicked="#btnClose" text="X" />
+               </children>
+            </HBox>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <HBox fx:id="pnlSuperior" alignment="CENTER" prefHeight="80.0" prefWidth="1024.0" spacing="35.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnMais" mnemonicParsing="false">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/menu.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Saúde Já">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin></Label>
+                        <TextField fx:id="tfPesquisar" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="600.0" promptText="Pesquisar" />
+                        <Button fx:id="btnCarrinho" mnemonicParsing="false">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/shopCart.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <Label fx:id="lblUsername" text="Nome de Usuario" />
+                        <Button fx:id="btnIcone" mnemonicParsing="false">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/userIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <HBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="1024.0" spacing="40.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnMedicamentos" mnemonicParsing="false" onAction="#btnClickMedicamentos" text="Medicamentos">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnReciclagem" mnemonicParsing="false" onMouseClicked="#btnRecClickar" text="Reciclagem">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnAgendar" mnemonicParsing="false" onMouseClicked="#btnAgendClickar" text="Agendar Consulta">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnSaibaMais" mnemonicParsing="false" onMouseClicked="#btnSaibaClickar" text="Saiba Mais">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </HBox>
+               </center>
+               <bottom>
+                  <StackPane prefHeight="430.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="lblReciclagem" text="Reciclagem">
+                                 <padding>
+                                    <Insets left="70.0" top="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="lblDescricao" text="Encontre postos de reciclagem perto de você e receba um desconto na compra do mesmo remédio">
+                                 <padding>
+                                    <Insets left="70.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ImageView fx:id="ivMapa" fitHeight="416.0" fitWidth="754.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Placeholders/mapaPlaceholder.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="320.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                           </children>
+                        </VBox>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnPin1" layoutX="719.0" layoutY="351.0" maxHeight="30.0" maxWidth="30.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../Icons/mapPin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="btnPin2" layoutX="583.0" layoutY="231.0" maxHeight="30.0" maxWidth="30.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../Icons/mapPin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="btnPin3" layoutX="729.0" layoutY="190.0" maxHeight="30.0" maxWidth="30.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../Icons/mapPin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="btnPin4" layoutX="481.0" layoutY="361.0" maxHeight="30.0" maxWidth="30.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                                 <graphic>
+                                    <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../Icons/mapPin.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+               </bottom>
+            </BorderPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
