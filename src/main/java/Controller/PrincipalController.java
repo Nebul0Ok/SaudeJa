@@ -1,6 +1,7 @@
 package Controller;
 
 import Classes.Card;
+import Classes.LoggedUser;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -121,6 +122,10 @@ public class PrincipalController extends BaseController implements Initializable
 	Card card3 = new Card();
 	VBox card3Teste = card3.cardGen("Amoxicilina", "/imagemRemedio/amoxicilina.png");
 	pnlContent.getChildren().add(card3Teste);
+	
+	String nomeUsuario = LoggedUser.userName();
+	lblUsername.setText(nomeUsuario);
+	
     } 
 
 }

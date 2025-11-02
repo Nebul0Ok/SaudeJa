@@ -1,5 +1,6 @@
 package Controller;
 
+import Classes.LoggedUser;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -112,5 +113,8 @@ public class TelaReciclagem extends BaseController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 	Image mapa = new Image("/Placeholders/");
+	
+	String nomeUsuario = LoggedUser.userName();
+	lblUsername.setText(nomeUsuario);
     }
 }

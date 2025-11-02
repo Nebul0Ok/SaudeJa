@@ -1,5 +1,6 @@
 package Controller;
 
+import Classes.LoggedUser;
 import DAO.ClienteDao;
 import DAO.ComercianteDAO;
 import DAO.MedicoDAO;
@@ -82,6 +83,7 @@ public class TelaLoginController extends BaseController{
 	    System.out.println("Cliente Logado");
 	    
 	    if(cadastro){
+		LoggedUser.queryUser(email, senha);
 		sceneSwitch.telaPrincipal();
 	    }
 	    
