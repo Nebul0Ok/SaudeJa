@@ -4,24 +4,21 @@ import Classes.LoggedUser;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import Classes.Card;
 
-public class TelaReciclagem extends BaseController implements Initializable{
-    
+public class AgendarController extends BaseController implements Initializable{
     boolean isFS = true;
     
-    @FXML
+        @FXML
     private Button btnAgendar;
 
     @FXML
@@ -49,13 +46,10 @@ public class TelaReciclagem extends BaseController implements Initializable{
     private Button btnSaibaMais;
 
     @FXML
-    private ImageView ivMapa;
+    private HBox hbContent;
 
     @FXML
-    private Label lblDescricao;
-
-    @FXML
-    private Label lblReciclagem;
+    private Label lblAgendarConsulta;
 
     @FXML
     private Label lblUsername;
@@ -71,24 +65,20 @@ public class TelaReciclagem extends BaseController implements Initializable{
 
     @FXML
     private TextField tfPesquisar;
-    
-    @FXML
-    void btnClickMedicamentos(ActionEvent event) {
-	sceneSwitch.telaPrincipal();
-    }
 
     @FXML
     void btnAgendClickar(MouseEvent event) {
-	sceneSwitch.telaMedico();
+
     }
 
     @FXML
     void btnClose(MouseEvent event) {
-	Platform.exit();
+        Platform.exit();
     }
 
     @FXML
     void btnMax(MouseEvent event) {
+	
 	if(isFS == true){
 	    Stage stage = (Stage) btnMinMax.getScene().getWindow();
 	    stage.setFullScreen(false);
@@ -98,23 +88,39 @@ public class TelaReciclagem extends BaseController implements Initializable{
 	    stage.setFullScreen(true);
 	    isFS = true;
 	}
+	
+    }
+
+    @FXML
+    void btnMedClickar(MouseEvent event) {
+	sceneSwitch.telaPrincipal();
     }
 
     @FXML
     void btnRecClickar(MouseEvent event) {
-
+	sceneSwitch.telaReciclagem();
     }
 
     @FXML
     void btnSaibaClickar(MouseEvent event) {
 	sceneSwitch.telaSobrenos();
-    }  
+    }
+    
+    public void initialize(){
+    	String nomeUsuario = LoggedUser.userName();
+	lblUsername.setText(nomeUsuario);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-	Image mapa = new Image("/Placeholders/");
-	
 	String nomeUsuario = LoggedUser.userName();
 	lblUsername.setText(nomeUsuario);
+	
+	HBox teste= Card.medcardGen("Doutor 1", "/Icons/userIcon.png", "Cardiologista", "+55 9 99999-9999");
+	HBox teste2= Card.medcardGen("Doutor 2", "/Icons/userIcon.png", "Oftalmologista", "+55 5 5555-5555");
+	
+	hbContent.getChildren().add(teste);
+	hbContent.getChildren().add(teste2);
     }
+    
 }

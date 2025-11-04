@@ -4,23 +4,20 @@ import Classes.LoggedUser;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class TelaReciclagem extends BaseController implements Initializable{
-    
+public class SobreNosController extends BaseController implements Initializable{
     boolean isFS = true;
-    
+
     @FXML
     private Button btnAgendar;
 
@@ -49,16 +46,25 @@ public class TelaReciclagem extends BaseController implements Initializable{
     private Button btnSaibaMais;
 
     @FXML
-    private ImageView ivMapa;
+    private ImageView ivFoto;
 
     @FXML
-    private Label lblDescricao;
+    private ImageView ivFoto1;
 
     @FXML
-    private Label lblReciclagem;
+    private Label lblContent;
+
+    @FXML
+    private Label lblNome;
+
+    @FXML
+    private Label lblTitulo;
 
     @FXML
     private Label lblUsername;
+
+    @FXML
+    private HBox pnlContent;
 
     @FXML
     private HBox pnlPainelPrincipal;
@@ -71,11 +77,6 @@ public class TelaReciclagem extends BaseController implements Initializable{
 
     @FXML
     private TextField tfPesquisar;
-    
-    @FXML
-    void btnClickMedicamentos(ActionEvent event) {
-	sceneSwitch.telaPrincipal();
-    }
 
     @FXML
     void btnAgendClickar(MouseEvent event) {
@@ -101,20 +102,32 @@ public class TelaReciclagem extends BaseController implements Initializable{
     }
 
     @FXML
-    void btnRecClickar(MouseEvent event) {
+    void btnMedClickar(MouseEvent event) {
+	sceneSwitch.telaPrincipal();
+    }
 
+    @FXML
+    void btnRecClickar(MouseEvent event) {
+	sceneSwitch.telaReciclagem();
     }
 
     @FXML
     void btnSaibaClickar(MouseEvent event) {
-	sceneSwitch.telaSobrenos();
-    }  
+
+    }
+
+    
+    public void Initialize(){
+    
+    	String nomeUsuario = LoggedUser.userName();
+	lblUsername.setText(nomeUsuario);
+	
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-	Image mapa = new Image("/Placeholders/");
-	
-	String nomeUsuario = LoggedUser.userName();
+		String nomeUsuario = LoggedUser.userName();
 	lblUsername.setText(nomeUsuario);
     }
+    
 }

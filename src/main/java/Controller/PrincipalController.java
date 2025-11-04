@@ -89,6 +89,7 @@ public class PrincipalController extends BaseController implements Initializable
 
     @FXML
     void btnMedClickar(MouseEvent event) {
+	
     }
 
     @FXML
@@ -98,12 +99,12 @@ public class PrincipalController extends BaseController implements Initializable
 
     @FXML
     void btnAgendClickar(MouseEvent event) {
-
+	sceneSwitch.telaMedico();
     }
 
     @FXML
     void btnSaibaClickar(MouseEvent event) {
-
+	sceneSwitch.telaSobrenos();
     }
     
     public void initialize(URL url, ResourceBundle rb) {

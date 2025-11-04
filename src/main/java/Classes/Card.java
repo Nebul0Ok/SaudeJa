@@ -1,9 +1,12 @@
 package Classes;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class Card {
@@ -42,6 +45,48 @@ public class Card {
 	
 	
 	return carta;
+    }
+    
+     public static HBox medcardGen(String nomeMed, String urlImagem, String tipo, String numTel){
+	HBox carta = new HBox(10);
+	carta.setMaxHeight(180);
+	carta.setMaxWidth(360);
+	carta.setStyle("-fx-background-color: lightgray; -fx-padding: 15; -fx-background-radius:7;");
+
+	 try {
+	     Image imagem = new Image(urlImagem);
+	     ImageView imageview = new ImageView(imagem);
+	     imageview.setFitHeight(150);
+	     imageview.setFitWidth(150);
+	     Label nomes = new Label(nomeMed);
+	     Label tipoMed = new Label(tipo);
+	     Label numero = new Label(numTel);
+	     Button marcar = new Button("Marcar Consulta");
+	     
+	     
+	     VBox layout = new VBox();
+	     layout.setAlignment(Pos.CENTER_RIGHT);
+	     
+	     nomes.setStyle("-fx-text-fill:black; -fx-font-size:25;");
+	     tipoMed.setStyle("-fx-text-fill:black; -fx-font-size:20;");
+	     numero.setStyle("-fx-text-fill:black;  -fx-font-size:15;");
+	     marcar.setStyle("-fx-font-size:15");
+	     
+	     
+	     carta.getChildren().add(imageview);
+	     
+	     layout.getChildren().add(nomes);
+	     layout.getChildren().add(tipoMed);
+	     layout.getChildren().add(numero);
+	     layout.getChildren().add(marcar);
+	     
+	     carta.getChildren().add(layout);
+	     
+	 } catch (Exception e) {
+	     System.out.println("Erro: "+ e.getMessage());
+	 }
+	 
+	 return carta;
     }
     
 }
