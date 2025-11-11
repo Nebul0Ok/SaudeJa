@@ -62,7 +62,7 @@ public class SceneSwitch {
 
     }
     
-    public void telaMedico(){
+    public void telaAgendar(){
 	newSc("/TelaMedicos/TelaMedicos.fxml", "/TelaMedicos/TelaMedicos.css");
 	stage.centerOnScreen();
 	stage.setFullScreenExitHint("");
@@ -77,5 +77,29 @@ public class SceneSwitch {
 	stage.setFullScreen(true);
 	stage.setResizable(true);
     }   
+    
+    public void telaProduto(){
+	newSc("/TelaProduto/TelaProduto.fxml", "/TelaProduto/TelaProduto.css");
+	stage.centerOnScreen();
+	stage.setFullScreenExitHint("");
+	stage.setFullScreen(true);
+	stage.setResizable(true);
+    }
+    
+    public void telaMedico(){
+	newSc("/Medicos/Medicos.fxml", "/Medicos/Medicos.css");
+	stage.centerOnScreen();
+	stage.setFullScreenExitHint("");
+	stage.setFullScreen(true);
+	stage.setResizable(true);
+    }
+    
+    public void telaFarmacia(){
+	newSc("/Farmacias/Farmacias.fxml", "/Farmacias/Farmacias.css");
+	stage.centerOnScreen();
+	stage.setFullScreenExitHint("");
+	stage.setFullScreen(true);
+	stage.setResizable(true);
+    }
     
 }

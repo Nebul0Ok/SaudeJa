@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="pnlPrincipal" maxHeight="576.0" maxWidth="1024.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1366.0" stylesheets="@TelaSobrenos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.SobreNosController">
+<StackPane fx:id="pnlPrincipal" maxHeight="576.0" maxWidth="1024.0" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="720.0" prefWidth="1366.0" stylesheets="@Medicos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PrincipalController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -25,77 +25,25 @@
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>
                   <HBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="1024.0" spacing="40.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button fx:id="btnMedicamentos" mnemonicParsing="false" onMouseClicked="#btnMedClickar" text="Medicamentos">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <Button fx:id="btnReciclagem" mnemonicParsing="false" onMouseClicked="#btnRecClickar" text="Reciclagem">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <Button fx:id="btnAgendar" mnemonicParsing="false" onMouseClicked="#btnAgendClickar" text="Agendar Consulta">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                        <Button fx:id="btnSaibaMais" mnemonicParsing="false" onMouseClicked="#btnSaibaClickar" text="Saiba Mais">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></Button>
-                     </children>
                      <padding>
                         <Insets top="10.0" />
                      </padding>
                   </HBox>
                </center>
                <bottom>
-                  <HBox fx:id="pnlContent" prefHeight="481.0" prefWidth="1316.0" spacing="20.0" BorderPane.alignment="CENTER">
+                  <HBox fx:id="pnlContent" prefHeight="518.0" prefWidth="1316.0" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="25.0" right="25.0" top="30.0" />
                      </BorderPane.margin>
                      <children>
-                        <VBox prefHeight="481.0" prefWidth="711.0">
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <VBox prefHeight="518.0" prefWidth="581.0">
                            <children>
-                              <Label fx:id="lblTitulo" text="Sobre nós" />
-                              <Label fx:id="lblContent" alignment="TOP_CENTER" prefHeight="427.0" prefWidth="631.0" text="   Nós somos alunos do segundo semestre do curso de Análise e Desenvolvimento de Sistemas da FATEC Prof° Waldomiro May de Cruzeiro. &#10;   Esse aplicativo foi feito como um projeto das disciplinas de Linguagem de Programação, Interação Humano Computador e Sociedade e Tecnologia.&#10;   Nossos objetivos com esse aplicativo foi o de promover acesso à saúde igualitária para todos, tornando esse aplicativo de fácil acesso e intuitivo." wrapText="true" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="400.0" prefWidth="500.0" spacing="50.0">
-                           <children>
-                              <HBox prefHeight="150.0" prefWidth="289.0">
-                                 <children>
-                                    <Label fx:id="lblNome" text="João Gustavo&#10; dos Santos">
-                                       <HBox.margin>
-                                          <Insets right="10.0" top="40.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <ImageView fx:id="ivFoto" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Placeholders/Placeholder.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="70.0" top="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label fx:id="lblNome" text="Marjorye P.&#10; Picanço">
-                                       <HBox.margin>
-                                          <Insets right="10.0" top="40.0" />
-                                       </HBox.margin>
-                                    </Label>
-                                    <ImageView fx:id="ivFoto1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Placeholders/Placeholder.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="180.0" />
-                                 </VBox.margin>
-                              </HBox>
+                              <Label fx:id="lblNomeFarmacia" text="Nome:" />
+                              <Label fx:id="lblEndereco" text="Endereço:" />
+                              <Label fx:id="lblAvaliacao" text="Avaliação:" />
+                              <Label fx:id="lblStatus" text="Status:" />
+                              <Label fx:id="lblHorario" text="Whatsapp:" />
                            </children>
                         </VBox>
                      </children></HBox>

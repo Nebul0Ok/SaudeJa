@@ -2,6 +2,7 @@ package Controller;
 
 import Classes.Card;
 import Classes.LoggedUser;
+import Utility.Keybinds;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -10,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -19,8 +22,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class PrincipalController extends BaseController implements Initializable{
-
+    boolean isMenu = false;
+    
     boolean isFS = true;
+    
+    StackPane background = new StackPane();
     
     @FXML
     private Button btnAgendar;
@@ -99,7 +105,7 @@ public class PrincipalController extends BaseController implements Initializable
 
     @FXML
     void btnAgendClickar(MouseEvent event) {
-	sceneSwitch.telaMedico();
+	sceneSwitch.telaAgendar();
     }
 
     @FXML
@@ -128,5 +134,31 @@ public class PrincipalController extends BaseController implements Initializable
 	lblUsername.setText(nomeUsuario);
 	
     } 
+    
+    @FXML
+    void handleOnKeyPressed(KeyEvent event) {
+
+	
+	if(event.getCode() == KeyCode.A){
+	    
+	    if(isMenu == false){
+		
+		background.getChildren().clear();
+		background.getChildren().add(Keybinds.Menu());
+		
+		if(!pnlPrincipal.getChildren().contains(background)){
+		    pnlPrincipal.getChildren().add(background);
+		}
+		isMenu = true;
+		
+	    }else{
+	    pnlPrincipal.getChildren().remove(background);
+	    isMenu = false;
+	    
+	    }
+	    
+	}
+    }
+    
 
 }

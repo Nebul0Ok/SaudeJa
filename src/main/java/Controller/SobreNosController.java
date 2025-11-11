@@ -80,7 +80,7 @@ public class SobreNosController extends BaseController implements Initializable{
 
     @FXML
     void btnAgendClickar(MouseEvent event) {
-	sceneSwitch.telaMedico();
+	sceneSwitch.telaAgendar();
     }
 
     @FXML

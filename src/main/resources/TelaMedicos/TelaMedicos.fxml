@@ -26,10 +26,22 @@
                <center>
                   <HBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="1024.0" spacing="40.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="btnMedicamentos" mnemonicParsing="false" onMouseClicked="#btnMedClickar" text="Medicamentos" />
-                        <Button fx:id="btnReciclagem" mnemonicParsing="false" onMouseClicked="#btnRecClickar" text="Reciclagem" />
-                        <Button fx:id="btnAgendar" mnemonicParsing="false" onMouseClicked="#btnAgendClickar" text="Agendar Consulta" />
-                        <Button fx:id="btnSaibaMais" mnemonicParsing="false" onMouseClicked="#btnSaibaClickar" text="Saiba Mais" />
+                        <Button fx:id="btnMedicamentos" mnemonicParsing="false" onMouseClicked="#btnMedClickar" text="Medicamentos">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnReciclagem" mnemonicParsing="false" onMouseClicked="#btnRecClickar" text="Reciclagem">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnAgendar" mnemonicParsing="false" onMouseClicked="#btnAgendClickar" text="Agendar Consulta">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                        <Button fx:id="btnSaibaMais" mnemonicParsing="false" onMouseClicked="#btnSaibaClickar" text="Saiba Mais">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
                      </children>
                      <padding>
                         <Insets top="10.0" />

@@ -18,7 +18,7 @@ import Classes.Card;
 public class AgendarController extends BaseController implements Initializable{
     boolean isFS = true;
     
-        @FXML
+    @FXML
     private Button btnAgendar;
 
     @FXML
