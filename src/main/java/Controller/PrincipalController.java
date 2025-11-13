@@ -117,23 +117,29 @@ public class PrincipalController extends BaseController implements Initializable
 	
 	pnlContent.setSpacing(10);
 	
-	//Spawna os cards quando a tela abre pela primeira vez
-	Card card1 = new Card();
-	VBox card1Teste = card1.cardGen("Ibuprofeno", "/imagemRemedio/ibuprofeno.png");
-	pnlContent.getChildren().add(card1Teste);
-	
-	Card card2 = new Card();
-	VBox card2Teste = card2.cardGen("Dipirona", "/imagemRemedio/dipirona.png");
-	pnlContent.getChildren().add(card2Teste);
-	
-	Card card3 = new Card();
-	VBox card3Teste = card3.cardGen("Amoxicilina", "/imagemRemedio/amoxicilina.png");
-	pnlContent.getChildren().add(card3Teste);
-	
 	String nomeUsuario = LoggedUser.userName();
 	lblUsername.setText(nomeUsuario);
-	
     } 
+    
+     @Override
+    public void setSceneSwitch(Utility.SceneSwitch sceneSwitch) {
+        super.setSceneSwitch(sceneSwitch);
+	criarCards();
+    }
+    
+    private void criarCards() {
+        Card card1 = new Card();
+        VBox card1Teste = card1.cardGen("Ibuprofeno", "/imagemRemedio/ibuprofeno.png", sceneSwitch);
+        pnlContent.getChildren().add(card1Teste);
+        
+        Card card2 = new Card();
+        VBox card2Teste = card2.cardGen("Dipirona", "/imagemRemedio/dipirona.png", sceneSwitch);
+        pnlContent.getChildren().add(card2Teste);
+        
+        Card card3 = new Card();
+        VBox card3Teste = card3.cardGen("Amoxicilina", "/imagemRemedio/amoxicilina.png", sceneSwitch);
+        pnlContent.getChildren().add(card3Teste);
+    }
     
     @FXML
     void handleOnKeyPressed(KeyEvent event) {

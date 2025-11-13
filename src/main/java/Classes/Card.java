@@ -1,5 +1,8 @@
 package Classes;
 
+import Utility.SceneSwitch;
+import com.google.gson.Gson;
+import java.io.FileWriter;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,7 +20,7 @@ public class Card {
     public Button acessar;
     public VBox card;
     
-    public VBox cardGen(String nome, String urlImagem){
+    public VBox cardGen(String nome, String urlImagem, SceneSwitch sceneSwitch){
 	VBox carta = new VBox(10);
 	carta.setMaxHeight(220);
 	carta.setMaxWidth(220);
@@ -35,7 +38,24 @@ public class Card {
 	    imageView.setFitHeight(200);
 	    imageView.setPreserveRatio(false);
 
-	    Button preco = new Button("Preços");
+	    Button preco = new Button("Consultar Preços");
+	    
+	    preco.setOnAction(e -> {	
+		try {
+		Gson gson = new Gson();
+		FileWriter fw = new FileWriter("src/main/resources/UserLogged/ProdutoClickado.json");  
+		
+		String objJson = gson.toJson(nome);
+		
+		fw.write(objJson);
+		fw.close();
+		} catch (Exception ex) {
+		    System.out.println("Erro: " + ex.getMessage());
+		}
+		
+		sceneSwitch.telaProduto();
+		
+	    });
 
 	    carta.getChildren().addAll(imageView, nomeLabel, preco);
 	    
@@ -62,6 +82,20 @@ public class Card {
 	     Label tipoMed = new Label(tipo);
 	     Label numero = new Label(numTel);
 	     Button marcar = new Button("Marcar Consulta");
+	     
+	     marcar.setOnAction(e -> {
+		 try {
+		Gson gson = new Gson();
+		FileWriter fw = new FileWriter("src/main/resources/UserLogged/MedicoClickado.json");  
+		
+		String objJson = gson.toJson(nomeMed);
+		
+		fw.write(objJson);
+		fw.close();
+		} catch (Exception ex) {
+		    System.out.println("Erro: " + ex.getMessage());
+		}
+	     });
 	     
 	     
 	     VBox layout = new VBox();
