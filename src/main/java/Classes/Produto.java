@@ -9,6 +9,14 @@ public class Produto {
     public int dose;
     public String estabelecimento;
     public int quantidade;
+    public String urlImagem;
+
+    public Produto(String nome, String urlImagem) {
+	this.nome = nome;
+	this.urlImagem = urlImagem;
+    }
+    
+    
 
     public Produto(int id, String nome, double preco, String tipoUso, String tipoConsumo, int dose, String estabelecimento, int quantidade) {
 	this.id = id;

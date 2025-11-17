@@ -64,3 +64,18 @@
     -fx-background-color:#1a56a8;
     -fx-text-fill:#c6f4e7;
 }
+
+#btnLeft{
+
+    -fx-font-size:40;
+    -fx-background-radius: 50;
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#btnRight{
+    -fx-font-size:40;
+    -fx-background-radius: 50;
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}

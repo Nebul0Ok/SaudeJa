@@ -22,8 +22,80 @@
                   <Button fx:id="btnFechar" mnemonicParsing="false" onMouseClicked="#btnClose" text="X" />
                </children>
             </HBox>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <center>
+            <HBox fx:id="pnlSuperior" alignment="CENTER" prefHeight="80.0" prefWidth="1024.0" spacing="35.0">
+               <children>
+                  <Button fx:id="btnMais" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/menu.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Saúde Já">
+                     <HBox.margin>
+                        <Insets left="-30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="tfPesquisar" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="600.0" promptText="Pesquisar" />
+                  <Button fx:id="btnCarrinho" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/shopCart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="lblUsername" text="Nome de Usuario" />
+                  <Button fx:id="btnIcone" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/userIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <BorderPane prefHeight="591.0" prefWidth="1366.0">
+               <left>
+                  <VBox alignment="CENTER" prefHeight="590.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnLeft" mnemonicParsing="false" text="&lt;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </children>
+                  </VBox>
+               </left>
+               <right>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btnRight" mnemonicParsing="false" text="&gt;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></Button>
+                     </children>
+                  </VBox>
+               </right>
+               <top>
                   <HBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="1024.0" spacing="40.0" BorderPane.alignment="CENTER">
                      <children>
                         <Button fx:id="btnMedicamentos" mnemonicParsing="false" onMouseClicked="#btnMedClickar" text="Medicamentos">
@@ -47,67 +119,13 @@
                         <Insets top="10.0" />
                      </padding>
                   </HBox>
-               </center>
-               <bottom>
-                  <HBox fx:id="pnlContent" prefHeight="405.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+               </top>
+               <center>
+                  <HBox fx:id="pnlContent" prefHeight="405.0" prefWidth="1316.0" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="25.0" right="25.0" top="30.0" />
                      </BorderPane.margin></HBox>
-               </bottom>
-               <top>
-                  <HBox fx:id="pnlSuperior" alignment="CENTER" prefHeight="80.0" prefWidth="1024.0" spacing="35.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button fx:id="btnMais" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/menu.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Icons/logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Saúde Já">
-                           <HBox.margin>
-                              <Insets left="-30.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="tfPesquisar" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="600.0" promptText="Pesquisar" />
-                        <Button fx:id="btnCarrinho" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/shopCart.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Label fx:id="lblUsername" text="Nome de Usuario" />
-                        <Button fx:id="btnIcone" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/userIcon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-               </top>
+               </center>
             </BorderPane>
          </children>
       </VBox>

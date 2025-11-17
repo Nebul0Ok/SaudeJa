@@ -1,10 +1,23 @@
 package Controller;
 
+//Imports das minhas classes
 import Classes.Card;
 import Classes.LoggedUser;
+import Classes.Produto;
 import Utility.Keybinds;
+
+//Imports do SQL
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+//Imports de utildades
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+//Imports do javafx
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,7 +38,9 @@ public class PrincipalController extends BaseController implements Initializable
     boolean isMenu = false;
     
     boolean isFS = true;
+    short min = 0;
     
+    ArrayList<VBox> allCards = new ArrayList<>();
     StackPane background = new StackPane();
     
     @FXML
@@ -54,7 +69,13 @@ public class PrincipalController extends BaseController implements Initializable
 
     @FXML
     private Button btnSaibaMais;
-
+    
+    @FXML
+    private Button btnLeft;
+	
+    @FXML
+    private Button btnRight;
+    
     @FXML
     private Label lblUsername;
 
@@ -119,6 +140,7 @@ public class PrincipalController extends BaseController implements Initializable
 	
 	String nomeUsuario = LoggedUser.userName();
 	lblUsername.setText(nomeUsuario);
+	
     } 
     
      @Override
@@ -128,24 +150,53 @@ public class PrincipalController extends BaseController implements Initializable
     }
     
     private void criarCards() {
-        Card card1 = new Card();
-        VBox card1Teste = card1.cardGen("Ibuprofeno", "/imagemRemedio/ibuprofeno.png", sceneSwitch);
-        pnlContent.getChildren().add(card1Teste);
-        
-        Card card2 = new Card();
-        VBox card2Teste = card2.cardGen("Dipirona", "/imagemRemedio/dipirona.png", sceneSwitch);
-        pnlContent.getChildren().add(card2Teste);
-        
-        Card card3 = new Card();
-        VBox card3Teste = card3.cardGen("Amoxicilina", "/imagemRemedio/amoxicilina.png", sceneSwitch);
-        pnlContent.getChildren().add(card3Teste);
+        ArrayList<Produto> produtos = new ArrayList<>();
+	ArrayList<VBox> cartas = new ArrayList<>();
+	
+	try (Connection conexao = DriverManager.getConnection("jdbc:sqlite:BancoDados.db");
+	     PreparedStatement comando = conexao.prepareStatement("SELECT * FROM remedio")){
+	    
+	    try (ResultSet rs = comando.executeQuery()){
+		
+		while(rs.next()){
+		    String nome = rs.getString("nome");
+		    String urlIm = rs.getString("caminho_imagem");
+		    
+		    Produto prod = new Produto(nome, urlIm);
+		    
+		    produtos.add(prod);
+		}
+		
+	    } catch (Exception e) {
+		System.out.println("Erro: " + e.getMessage());
+	    }
+	    
+	} catch (Exception e) {
+	    System.out.println("Erro: " + e.getMessage());
+	}
+	
+	for(Produto item : produtos){
+	    Card carta = new Card();
+	    VBox card = carta.cardGen(item.nome, item.urlImagem, sceneSwitch);
+	    allCards.add(card);
+	}
+	
+	mostraInicio();
+    }
+    
+    public void mostraInicio(){
+	pnlContent.getChildren().clear();
+	
+	for(int i =0; i < 4; i++){
+	pnlContent.getChildren().add(allCards.get(i));
+	}
     }
     
     @FXML
     void handleOnKeyPressed(KeyEvent event) {
 
 	
-	if(event.getCode() == KeyCode.A){
+	if(event.getCode() == KeyCode.E){
 	    
 	    if(isMenu == false){
 		
@@ -164,7 +215,44 @@ public class PrincipalController extends BaseController implements Initializable
 	    }
 	    
 	}
+	
+	if(event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT){
+	    int maxPos = allCards.size();
+	    
+	    if ((min + 4) < maxPos){
+		pnlContent.getChildren().clear();
+		min+=4;
+		
+		for(int i = min; i < (min+4); i++){
+		    
+		    if(i < maxPos){
+			pnlContent.getChildren().add(allCards.get(i));
+		    }
+		}
+		
+		}
+		
+	    }
+	    
+	
+	if(event.getCode() == KeyCode.A|| event.getCode() == KeyCode.LEFT){
+	    int minPos = 0;
+	    
+	    if ((min - 4) >= minPos){
+		pnlContent.getChildren().clear();
+		min-=4;
+		
+		for(int i = min; i < (min+4); i++){
+		    
+		    if(i >= 0){
+		    pnlContent.getChildren().add(allCards.get(i));
+		    }		    
+		    
+		}
+	    }
+	    
+	}
+	
     }
     
-
 }
