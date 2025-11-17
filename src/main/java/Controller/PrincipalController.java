@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 //Imports do javafx
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -98,6 +99,46 @@ public class PrincipalController extends BaseController implements Initializable
     void btnClose(MouseEvent event) {
         Platform.exit();
     }
+    
+    @FXML
+    void leftClick (ActionEvent event){	
+	int minPos = 0;
+	    
+	    if ((min - 4) >= minPos){
+		pnlContent.getChildren().clear();
+		min-=4;
+		
+		for(int i = min; i < (min+4); i++){
+		    
+		    if(i >= 0){
+		    pnlContent.getChildren().add(allCards.get(i));
+		    }		    
+		    
+		}
+	    }	
+    }
+    
+    @FXML
+    void rightClick (ActionEvent event){
+	int maxPos = allCards.size();
+
+	if ((min + 4) < maxPos) {
+	    pnlContent.getChildren().clear();
+	    min += 4;
+
+	    for (int i = min; i < (min + 4); i++) {
+
+		if (i < maxPos) {
+		    pnlContent.getChildren().add(allCards.get(i));
+		}
+	    }
+
+	}    }
+    
+    
+    @FXML
+    void btnMedClickar(MouseEvent event) {
+    }
 
     @FXML
     void btnMax(MouseEvent event) {
@@ -114,10 +155,7 @@ public class PrincipalController extends BaseController implements Initializable
 	
     }
 
-    @FXML
-    void btnMedClickar(MouseEvent event) {
-	
-    }
+
 
     @FXML
     void btnRecClickar(MouseEvent event) {

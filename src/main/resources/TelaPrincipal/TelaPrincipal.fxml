@@ -78,7 +78,7 @@
                <left>
                   <VBox alignment="CENTER" prefHeight="590.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="btnLeft" mnemonicParsing="false" text="&lt;">
+                        <Button fx:id="btnLeft" mnemonicParsing="false" onAction="#leftClick" text="&lt;">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
@@ -88,7 +88,7 @@
                <right>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="btnRight" mnemonicParsing="false" text="&gt;">
+                        <Button fx:id="btnRight" mnemonicParsing="false" onAction="#rightClick" text="&gt;">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Button>
@@ -121,7 +121,7 @@
                   </HBox>
                </top>
                <center>
-                  <HBox fx:id="pnlContent" prefHeight="405.0" prefWidth="1316.0" BorderPane.alignment="CENTER">
+                  <HBox fx:id="pnlContent" alignment="CENTER" prefHeight="405.0" prefWidth="1316.0" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="25.0" right="25.0" top="30.0" />
                      </BorderPane.margin></HBox>
