@@ -8,10 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -25,106 +22,96 @@
                   <Button fx:id="btnFechar" mnemonicParsing="false" onMouseClicked="#btnClose" text="X" />
                </children>
             </HBox>
+            <HBox fx:id="pnlSuperior" alignment="CENTER" prefHeight="80.0" prefWidth="1024.0" spacing="35.0">
+               <children>
+                  <Button fx:id="btnMais" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/menu.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblLogo" text="Saúde Já">
+                     <HBox.margin>
+                        <Insets left="-30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="tfPesquisar" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="600.0" promptText="Pesquisar" />
+                  <Button fx:id="btnCarrinho" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/shopCart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="lblUsername" text="Nome de Usuario" />
+                  <Button fx:id="btnIcone" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/userIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
                <center>
-                  <HBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="1024.0" spacing="40.0" BorderPane.alignment="CENTER">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </HBox>
-               </center>
-               <bottom>
-                  <HBox fx:id="pnlContent" prefHeight="455.0" prefWidth="1316.0" BorderPane.alignment="CENTER">
+                  <HBox fx:id="pnlContent" prefHeight="378.0" prefWidth="1255.0" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets left="25.0" right="25.0" top="30.0" />
                      </BorderPane.margin>
                      <children>
-                        <VBox maxHeight="455.0" maxWidth="900.0" minHeight="455.0" minWidth="900.0" prefHeight="455.0" prefWidth="900.0">
+                        <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <HBox prefHeight="75.0" prefWidth="816.0" spacing="200.0">
+                              <VBox prefHeight="455.0" prefWidth="237.0">
+                                 <children>
+                                    <ImageView fx:id="ivImagem" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="lblDescricao" text="Descrição:" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox maxHeight="455.0" maxWidth="1319.0" minHeight="455.0" minWidth="900.0" prefHeight="455.0" prefWidth="1319.0">
+                           <children>
+                              <HBox prefHeight="75.0" prefWidth="816.0" spacing="150.0">
                                  <children>
                                     <Label fx:id="lblNome" text="Nome:" wrapText="true" />
                                     <Label fx:id="lblQuantidade" layoutX="10.0" layoutY="10.0" text="Quantidade" />
                                     <Label fx:id="lblUso" text="Uso:" />
                                  </children>
                               </HBox>
-                              <Label fx:id="lblDescricao" text="Descrição:" />
                               <Label text="Vendido por:" />
-                              <GridPane prefHeight="179.0" prefWidth="816.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                              </GridPane>
-                           </children>
-                        </VBox>
-                        <VBox disable="true" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <ImageView fx:id="ivImagem" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                              <Button mnemonicParsing="false" text="Button" />
                            </children>
                         </VBox>
                      </children></HBox>
-               </bottom>
-               <top>
-                  <HBox fx:id="pnlSuperior" alignment="CENTER" prefHeight="80.0" prefWidth="1024.0" spacing="35.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button fx:id="btnMais" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/menu.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Icons/logo.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="lblLogo" text="Saúde Já">
-                           <HBox.margin>
-                              <Insets left="-30.0" />
-                           </HBox.margin>
-                        </Label>
-                        <TextField fx:id="tfPesquisar" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="600.0" promptText="Pesquisar" />
-                        <Button fx:id="btnCarrinho" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/shopCart.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Label fx:id="lblUsername" text="Nome de Usuario" />
-                        <Button fx:id="btnIcone" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/userIcon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                     </children>
-                  </HBox>
-               </top>
+               </center>
+               <left>
+                  <Button fx:id="btnReturn" mnemonicParsing="false" text="&lt;" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="300.0" left="20.0" right="20.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </left>
             </BorderPane>
          </children>
       </VBox>

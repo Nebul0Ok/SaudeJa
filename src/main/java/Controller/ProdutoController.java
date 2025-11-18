@@ -3,6 +3,10 @@ package Controller;
 import com.google.gson.Gson;
 import java.io.FileReader;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -86,6 +90,7 @@ public class ProdutoController extends BaseController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+	lblDescricao.setWrapText(true);
 	String nomeProduto = new String();
 	try{
 	    Gson gson = new Gson();
@@ -93,20 +98,36 @@ public class ProdutoController extends BaseController implements Initializable{
 	    
 	    nomeProduto = gson.fromJson(fr, String.class);
 	    
+	    lblNome.setText("Nome:\n" + nomeProduto);
+	    
+	    try (Connection conexao = DriverManager.getConnection("jdbc:sqlite:BancoDados.db");
+		 PreparedStatement comando = conexao.prepareStatement("SELECT * FROM remedio WHERE nome = ?")){
+		    comando.setString(1, nomeProduto);
+
+		    
+		try (ResultSet rs = comando.executeQuery()){
+		    rs.next();
+		    String urlImagem = rs.getString("caminho_imagem");
+		    Image imagem = new Image(urlImagem);
+		    ivImagem.setImage(imagem);
+		    
+		    lblDescricao.setText( "Descrição:\n" + rs.getString("descricao"));
+		    lblUso.setText( "Uso:\n" + rs.getString("tipo_uso"));
+		    lblQuantidade.setText( "Quantidade:\n" + rs.getString("quantidade"));
+		    
+		} catch (Exception e) {
+		    System.out.println("Erro: " + e.getMessage());
+		}
+		
+	    } catch (Exception e) {
+		System.out.println("Erro: " + e.getMessage());
+	    }
+	    
 	    fr.close();
 	    
 	}catch(Exception e){
 	    System.out.println("Erro: "+ e.getMessage());
 	}
-	
-	
-	lblNome.setText(nomeProduto);
-	lblQuantidade.setText("Quantidade:\n500mg");
-	lblUso.setText("Uso:\nOral");
-	lblDescricao.setText("Descrição:\nMedicamento indicado para o alivio da dor e da febre");
-	
-	Image imagem = new Image("/imagemRemedio/ibuprofeno.png");
-	ivImagem.setImage(imagem);
     }
 
     
