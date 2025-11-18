@@ -1,0 +1,23 @@
+.topButton {
+    -fx-background-color: transparent;
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+.cartItem {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);
+}
+
+.quantButton {
+    -fx-background-color: #e0e0e0;
+    -fx-background-radius: 6;
+}
+
+.removeButton {
+    -fx-background-color: #FF6B6B;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+}
