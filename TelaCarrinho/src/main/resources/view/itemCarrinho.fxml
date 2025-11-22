@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.carrinho.controller.ItemCarrinhoController"
+spacing="16" styleClass="cart-item" padding="12">
+
+
+<children>
+<ImageView fx:id="imgRemedio" fitHeight="110" fitWidth="90" preserveRatio="true" />
+
+
+<VBox spacing="6">
+<Label fx:id="nomeRemedio" style="-fx-font-size:16px; -fx-font-weight: bold;" />
+<Label fx:id="precoLabel" />
+
+
+<HBox spacing="8" alignment="CENTER_LEFT">
+<Label text="Quantidade:" />
+<Button fx:id="btnMenos" text="-" onAction="#onMenos" />
+<Label fx:id="qtdLabel" text="1" />
+<Button fx:id="btnMais" text="+" onAction="#onMais" />
+</HBox>
+
+
+<Button fx:id="btnRemover" text="Remover" onAction="#onRemover" />
+</VBox>
+</children>
+
+
+</HBox>

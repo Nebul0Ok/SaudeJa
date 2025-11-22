@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.carrinho.controller.CarrinhoController">
+
+
+<top>
+<HBox spacing="10" style="-fx-background-color: #7DE0C4;" alignment="CENTER_LEFT">
+<children>
+<Label text="Saúde Já" style="-fx-font-size:20px; -fx-text-fill: white;" />
+<Pane HBox.hgrow="ALWAYS" />
+<Button text="🛒" />
+<Button text="Usuário" />
+</children>
+<padding>
+<Insets top="12" right="20" bottom="12" left="20" />
+</padding>
+</HBox>
+</top>
+
+
+<center>
+<VBox spacing="12" padding="20">
+<Label text="Seu Carrinho" style="-fx-font-size:28px; -fx-font-weight: bold;" />
+
+
+<ScrollPane fitToWidth="true" prefHeight="450">
+<content>
+<VBox fx:id="listaCarrinho" spacing="12" padding="10" />
+</content>
+</ScrollPane>
+
+
+<HBox alignment="CENTER_RIGHT" spacing="12">
+<Label fx:id="labelTotal" text="Total: R$ 0,00" style="-fx-font-size:18px; -fx-font-weight: bold;" />
+<Button fx:id="btnFinalizar" text="Finalizar Compra" onAction="#onFinalizar" />
+</HBox>
+</VBox>
+</center>
+
+
+</BorderPane>
