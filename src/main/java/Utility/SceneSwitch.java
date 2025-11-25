@@ -102,4 +102,12 @@ public class SceneSwitch {
 	stage.setResizable(true);
     }
     
+    public void telaCarrinho(){
+	newSc("/TelaCarrinho/carrinho.fxml", "/TelaCarrinho/carrinho.css");
+	stage.centerOnScreen();
+	stage.setFullScreenExitHint("");
+	stage.setFullScreen(true);
+	stage.setResizable(true);
+    }
+    
 }

@@ -72,11 +72,24 @@
 #btnReturn{
     -fx-font-size:45;
     -fx-background-radius: 50;
+    -fx-background-color: rgb(230, 229, 238);
+    -fx-text-fill:#1a56a8;
+}
+
+#btnReturn:hover{
+    -fx-font-size:45;
+    -fx-background-radius: 50;
     -fx-background-color:#1a56a8;
     -fx-text-fill:#c6f4e7;
 }
 
+
+
 #pnlContent{
     -fx-background-color: white;
     -fx-background-radius: 50;
+}
+
+#lblDescricao{
+    -fx-font-size: 14.5px;
 }
