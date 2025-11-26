@@ -5,11 +5,15 @@ import Classes.ProdutoCarrinho;
 import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.FileWriter;
+import javafx.geometry.HPos;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -127,8 +131,11 @@ public class Card {
 	 return carta;
     }
      
-     public static HBox cardLojas(int id, String nome, String nomeprod, float preco){
-	 HBox card = new HBox();
+     public static GridPane cardLojas(int id, String nome, String nomeprod, float preco){
+	 GridPane carta = new GridPane();
+	 
+	 carta.setHgap(10);
+	 
 	 Label nomes = new Label(nomeprod);
 	 Label precos = new Label("Preço: R$" + String.valueOf(preco));
 	 Button adicionar = new Button ("Adicionar");
@@ -151,17 +158,38 @@ public class Card {
 	     
 	 });
 	 
-	 Region espaco1 = new Region();
-	 Region espaco2 = new Region();
+	 carta.add(nomes, 0, 0);
+	 carta.add(precos, 1, 0);
+	 carta.add(adicionar, 2, 0);
 	 
-	 HBox.setHgrow(espaco1, Priority.ALWAYS);
-	 HBox.setHgrow(espaco2, Priority.ALWAYS);
+	 //HBox.setHgrow(carta, Priority.NEVER);
+	 //VBox.setVgrow(carta, Priority.NEVER);
 	 
-	 card.getChildren().addAll(nomes, espaco1, precos, espaco2, adicionar);
-
-	 card.setAlignment(Pos.CENTER);
+	 GridPane.setHalignment(nomes, HPos.LEFT);
+	 GridPane.setHalignment(precos, HPos.CENTER);
+	 GridPane.setHalignment(adicionar, HPos.RIGHT);
 	 
-	 return card;
+	 GridPane.setValignment(nomes, VPos.CENTER);
+	 GridPane.setValignment(precos, VPos.CENTER);
+	 GridPane.setValignment(adicionar, VPos.CENTER);
+	 
+	 ColumnConstraints col0= new ColumnConstraints();
+	 ColumnConstraints col1= new ColumnConstraints();
+	 ColumnConstraints col2= new ColumnConstraints();
+	 
+	 col0.setPercentWidth(33.3);
+	 col1.setPercentWidth(33.3);
+	 col2.setPercentWidth(33.3);
+	 
+	 nomes.setMaxWidth(Double.MAX_VALUE);
+	 precos.setMaxWidth(Double.MAX_VALUE);
+	 adicionar.setMaxWidth(Double.MAX_VALUE);
+	 
+	 carta.getColumnConstraints().addAll(col0, col1, col2);
+	 
+	 carta.setPrefWidth(400);
+	 
+	 return carta;
      }
      
      

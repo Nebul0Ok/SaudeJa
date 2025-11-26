@@ -24,6 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -72,7 +73,7 @@ public class ProdutoController extends BaseController implements Initializable{
     private Label lblUso;
 
     @FXML
-    private ListView<HBox> lvLista;
+    private ListView<GridPane> lvLista;
 
     @FXML
     private HBox pnlContent;
@@ -119,7 +120,7 @@ public class ProdutoController extends BaseController implements Initializable{
     
     int prodId;
     
-    	public ObservableList<HBox> itens;
+    	public ObservableList<GridPane> itens;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -145,9 +146,10 @@ public class ProdutoController extends BaseController implements Initializable{
 		    Image imagem = new Image(urlImagem);
 		    ivImagem.setImage(imagem);
 		    prodId = rs.getInt("id");
+		    String uso = rs.getString("tipo_uso");
 		    
 		    lblDescricao.setText( "Descrição:\n  " + rs.getString("descricao"));
-		    lblUso.setText( "Uso:\n" + rs.getString("tipo_uso"));
+		    lblUso.setText( "Uso:\n" + uso);
 		    lblQuantidade.setText( "Quantidade:\n" + rs.getString("quantidade"));
 		    
 		} catch (Exception e) {
@@ -163,7 +165,7 @@ public class ProdutoController extends BaseController implements Initializable{
 	    fr.close();
 	    
 	    
-	    ArrayList<HBox> cartasProd = new ArrayList<>();
+	    ArrayList<GridPane> cartasProd = new ArrayList<>();
 	    
 	    try (Connection conexao = DriverManager.getConnection("jdbc:sqlite:BancoDados.db");
 		 PreparedStatement comando = conexao.prepareStatement("SELECT * FROM remedio_estoque WHERE remedio_id = ?")){
@@ -174,7 +176,7 @@ public class ProdutoController extends BaseController implements Initializable{
 		    while (rs.next()) {
 			String nomeProd = rs.getString("nome_loja");
 			float precoProd = rs.getFloat("preco");
-			HBox cardprod = Card.cardLojas(prodId, nomeProduto, nomeProd, precoProd);
+			GridPane cardprod = Card.cardLojas(prodId, nomeProduto, nomeProd, precoProd);
 			cartasProd.add(cardprod);
 		    }
 		} catch (Exception e) {
