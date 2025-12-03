@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 
 //Imports de utildades
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 //Imports do javafx
@@ -22,7 +23,10 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -179,6 +183,9 @@ public class PrincipalController extends BaseController implements Initializable
 	String nomeUsuario = LoggedUser.userName();
 	lblUsername.setText(nomeUsuario);
 	
+	tfPesquisar.setOnKeyPressed(this::handleEnter);
+	
+	
     } 
     
      @Override
@@ -291,6 +298,50 @@ public class PrincipalController extends BaseController implements Initializable
 	    
 	}
 	
+	if(event.getCode() == KeyCode.L){
+	Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+	alerta.setTitle("Log Out");
+	alerta.setHeaderText("Deseja se Deslogar?");
+	alerta.setContentText("Você retornará para a tela inicial");
+	
+	Optional<ButtonType> result = alerta.showAndWait();
+	
+	if(result.isPresent() && result.get() == ButtonType.OK){
+	    sceneSwitch.telaLogin();
+	}
+	
+	
+	}
+	
     }
+    
+    public void handleEnter (KeyEvent event) {
+	if(event.getCode() == KeyCode.ENTER){
+	    try (Connection conexao = DriverManager.getConnection("jdbc:sqlite:BancoDados.db");
+		 PreparedStatement comando = conexao.prepareStatement("SELECT * FROM remedio WHERE nome = ?")){
+		String produtoQuery = tfPesquisar.getText();
+		comando.setString(1, produtoQuery);
+		
+		try (ResultSet rs = comando.executeQuery()){
+		    if(rs.next()){
+			System.out.println("Tem");
+		    }else{
+			System.out.println("Nao tem");
+		    }
+		} catch (Exception e) {
+		    System.out.println("Erro: " + e.getMessage());
+		}
+		
+	    } catch (Exception e) {
+		System.out.println("Erro: " + e.getMessage());
+	    }
+	    
+	    
+	}
+	
+	
+	    
+    }
+    
     
 }

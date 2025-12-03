@@ -79,14 +79,27 @@ public class TelaCadastroController extends BaseController implements Initializa
 	if(usuario.equals("cliente")){
 	    cadastro = ClienteDao.cadastrar(nome, email, senha);
 	    System.out.println("Cliente Cadastrado");
+	    
+	    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+	    alerta.setHeaderText("Cadastrado com Sucesso!");
+	    alerta.showAndWait();
+	    
 	}
 	else if(usuario.equals("medico")){
 	    cadastro = MedicoDAO.cadastrar(nome, email, especifico, senha);
 	    System.out.println("Medico Cadastrado");
+	    
+	    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+	    alerta.setHeaderText("Cadastrado com Sucesso!");
+	    alerta.showAndWait();
 	}
 	else{
 	    cadastro = ComercianteDAO.cadastrar(nome, email, especifico, senha);
 	    System.out.println("Comerciante Cadastrado");
+	    
+	    Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+	    alerta.setHeaderText("Cadastrado com Sucesso!");
+	    alerta.showAndWait();
 	}
 	
     }

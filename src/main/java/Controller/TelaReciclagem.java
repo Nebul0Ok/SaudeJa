@@ -1,6 +1,8 @@
 package Controller;
 
 import Classes.LoggedUser;
+import com.google.gson.Gson;
+import java.io.FileWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -10,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -34,6 +37,18 @@ public class TelaReciclagem extends BaseController implements Initializable{
     private Button btnIcone;
 
     @FXML
+    private ImageView btnLoja1;
+
+    @FXML
+    private ImageView btnLoja2;
+
+    @FXML
+    private ImageView btnLoja3;
+
+    @FXML
+    private ImageView btnLoja4;
+
+    @FXML
     private Button btnMais;
 
     @FXML
@@ -41,6 +56,18 @@ public class TelaReciclagem extends BaseController implements Initializable{
 
     @FXML
     private Button btnMinMax;
+
+    @FXML
+    private Button btnPin1;
+
+    @FXML
+    private Button btnPin2;
+
+    @FXML
+    private Button btnPin3;
+
+    @FXML
+    private Button btnPin4;
 
     @FXML
     private Button btnReciclagem;
@@ -108,7 +135,69 @@ public class TelaReciclagem extends BaseController implements Initializable{
     @FXML
     void btnSaibaClickar(MouseEvent event) {
 	sceneSwitch.telaSobrenos();
-    }  
+    } 
+    
+    @FXML
+    void loja1(ActionEvent event) {
+	Gson gson = new Gson();
+	
+	try(FileWriter fw = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
+	    String teste = "Droga Raia";
+	    String json = gson.toJson(teste);
+	    
+	    fw.write(json);
+	    
+	    sceneSwitch.telaFarmacia();
+	    
+	}catch (Exception e) {
+	    System.out.println("Erro: " + e.getMessage());
+	}
+    }
+
+    @FXML
+    void loja2(ActionEvent event) {
+	Gson gson = new Gson();
+	
+	try(FileWriter fw = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
+	    String teste = "Drogaria Popular";
+	    String json = gson.toJson(teste);
+	    
+	    fw.write(json);
+	    
+	}catch (Exception e) {
+	    System.out.println("Erro: " + e.getMessage());
+	}
+    }
+
+    @FXML
+    void loja3(ActionEvent event) {
+	Gson gson = new Gson();
+	
+	try(FileWriter fw = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
+	    String teste = "Rede Saúde";
+	    String json = gson.toJson(teste);
+	    
+	    fw.write(json);
+	    
+	}catch (Exception e) {
+	    System.out.println("Erro: " + e.getMessage());
+	}
+    }
+
+    @FXML
+    void loja4(ActionEvent event) {
+	Gson gson = new Gson();
+	
+	try(FileWriter fw = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
+	    String teste = "Pague Pouco";
+	    String json = gson.toJson(teste);
+	    
+	    fw.write(json);
+	    
+	}catch (Exception e) {
+	    System.out.println("Erro: " + e.getMessage());
+	}
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -116,5 +205,15 @@ public class TelaReciclagem extends BaseController implements Initializable{
 	
 	String nomeUsuario = LoggedUser.userName();
 	lblUsername.setText(nomeUsuario);
+	
+	Tooltip t1 = new Tooltip("Droga Raia");
+	Tooltip t2 = new Tooltip("Drogaria Popular");
+	Tooltip t3 = new Tooltip("Rede Saúde");
+	Tooltip t4 = new Tooltip("Pague Pouco");
+	
+	btnPin1.setTooltip(t1);
+	btnPin2.setTooltip(t2);
+	btnPin3.setTooltip(t3);
+	btnPin4.setTooltip(t4);
     }
 }

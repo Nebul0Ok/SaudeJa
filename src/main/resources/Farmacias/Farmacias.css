@@ -17,7 +17,11 @@
     -fx-background-color: #91ebd2;
 }
 
-.label{
+#lblLogo{
+    -fx-text-fill:white;
+}
+
+#lblUsername{
     -fx-text-fill:white;
 }
 
@@ -63,4 +67,16 @@
 #btnSaibaMais:hover{
     -fx-background-color:#1a56a8;
     -fx-text-fill:#c6f4e7;
+}
+
+#btnReturn{
+    -fx-font-size:45;
+    -fx-background-radius: 50;
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#pnlContent{
+    -fx-background-color: white;
+    -fx-background-radius: 50;
 }
