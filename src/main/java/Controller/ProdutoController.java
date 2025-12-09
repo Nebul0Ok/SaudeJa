@@ -1,6 +1,7 @@
 package Controller;
 
 import Classes.Card;
+import Classes.LoggedUser;
 import com.google.gson.Gson;
 import java.io.FileReader;
 import java.net.URL;
@@ -125,6 +126,8 @@ public class ProdutoController extends BaseController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 	
+	String nomeUsuario = LoggedUser.userName();
+	
 	lblDescricao.setWrapText(true);
 	String nomeProduto = new String();
 	try{
@@ -176,7 +179,7 @@ public class ProdutoController extends BaseController implements Initializable{
 		    while (rs.next()) {
 			String nomeProd = rs.getString("nome_loja");
 			float precoProd = rs.getFloat("preco");
-			GridPane cardprod = Card.cardLojas(prodId, nomeProduto, nomeProd, precoProd);
+			GridPane cardprod = Card.cardLojas(prodId, nomeProduto, nomeProd, precoProd, nomeUsuario);
 			cartasProd.add(cardprod);
 		    }
 		} catch (Exception e) {

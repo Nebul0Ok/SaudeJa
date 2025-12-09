@@ -28,14 +28,13 @@ public class ComercianteDAO {
 		resultado = comando.executeQuery();
 
 		if (resultado.next()) {
-		    //Email ou CRM Existe, retorna falso
+		   
 		    return false;
 		}
 
 		resultado.close();
 		comando.close();
 
-		//Email e CRM não existe, continua
 		comando = conexao.prepareStatement(registro);
 
 		comando.setString(1, nome);

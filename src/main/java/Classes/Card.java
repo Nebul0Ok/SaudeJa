@@ -3,8 +3,11 @@ package Classes;
 import Utility.SceneSwitch;
 import Classes.ProdutoCarrinho;
 import com.google.gson.Gson;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
@@ -19,6 +22,20 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Card {
     public int id;
@@ -118,10 +135,31 @@ public class Card {
 	 return carta;
     }
      
-     public static GridPane cardLojas(int id, String nome, String nomeprod, float preco){
+     public static GridPane cardLojas(int id, String nome, String nomeprod, float preco, String nomeUsuario){
 	 GridPane carta = new GridPane();
+	 int idUser = -1;
+	 String sql = "SELECT id FROM cliente WHERE nome = ?";
+	 
+	 try (Connection conexao = DriverManager.getConnection("jdbc:sqlite:BancoDados.db");
+	      PreparedStatement comando = conexao.prepareStatement(sql)){
+	     
+	     comando.setString(1, nomeUsuario);
+	     
+	     try (ResultSet rs = comando.executeQuery()){
+		 if(rs.next()){
+		     idUser = rs.getInt("id");
+		 }
+	     } catch (Exception e) {
+		 System.out.println("Erro: "+ e.getMessage());
+	     }
+	     
+	 } catch (Exception e) {
+	     System.out.println("Erro: "+ e.getMessage());
+	 }
 	 
 	 carta.setHgap(10);
+	 
+	 final int clienteId = idUser;
 	 
 	 Label nomes = new Label(nomeprod);
 	 Label precos = new Label("Preço: R$" + String.valueOf(preco));
@@ -129,28 +167,30 @@ public class Card {
 	 
 	 ProdutoCarrinho produto = new ProdutoCarrinho(id, nome, nomeprod, preco); 
 	 
-	 Gson gson = new Gson();
 	 adicionar.setOnAction((event) -> {
-	     try (FileWriter fw = new FileWriter("src/main/resources/UserLogged/Carrinho.json", true)){
-		 
-		 String json = gson.toJson(produto);
-		 
-		 fw.write(json);
-		 fw.write("\n");
-		 
-		 
-	     } catch (Exception e) {
-		 System.out.println("Erro: "+ e.getMessage());
-	     }
 	     
+
+	     try (Connection conexao = DriverManager.getConnection("jdbc:sqlite:BancoDados.db");
+		  PreparedStatement comando = conexao.prepareStatement("INSERT INTO carrinho (id_cliente, id_produto_estoque, nome_remedio) VALUES (?, ?, ?)")) {
+
+		 comando.setInt(1, clienteId);
+		 comando.setInt(2, id);
+		 comando.setString(3, nomeprod);
+		 
+		 comando.executeUpdate();
+
+
+	     } catch (SQLException e) {
+		 System.err.println("Erro: " + e.getMessage());
+
+	     }
+	 
 	 });
 	 
 	 carta.add(nomes, 0, 0);
 	 carta.add(precos, 1, 0);
 	 carta.add(adicionar, 2, 0);
 	 
-	 //HBox.setHgrow(carta, Priority.NEVER);
-	 //VBox.setVgrow(carta, Priority.NEVER);
 	 
 	 GridPane.setHalignment(nomes, HPos.LEFT);
 	 GridPane.setHalignment(precos, HPos.CENTER);

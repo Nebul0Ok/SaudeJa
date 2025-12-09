@@ -28,14 +28,12 @@ public class MedicoDAO {
 		resultado = comando.executeQuery();
 
 		if (resultado.next()) {
-		    //Email ou CRM Existe, retorna falso
 		    return false;
 		}
 
 		resultado.close();
 		comando.close();
 
-		//Email e CRM não existe, continua
 		comando = conexao.prepareStatement(registro);
 
 		comando.setString(1, nome);
@@ -49,7 +47,6 @@ public class MedicoDAO {
 		System.out.println("Falha na execucao: " + e.getMessage());
 		return false;
 	    } finally {
-		//Fecha Conexão
 		try {
 		    if (resultado != null){
 			resultado.close();

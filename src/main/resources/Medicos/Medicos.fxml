@@ -92,20 +92,26 @@
                            <HBox.margin>
                               <Insets left="30.0" right="30.0" />
                            </HBox.margin></ImageView>
-                        <VBox prefHeight="396.0" prefWidth="649.0">
+                        <VBox prefHeight="524.0" prefWidth="828.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="200.0">
+                              <HBox prefHeight="100.0" prefWidth="691.0" spacing="20.0">
                                  <children>
-                                    <Label fx:id="lblNome" prefHeight="30.0" prefWidth="353.0" text="Nome:" />
-                                    <Label fx:id="lblEndereco" text="Endereço:" />
+                                    <Label fx:id="lblNome" alignment="TOP_LEFT" prefHeight="93.0" prefWidth="319.0" text="Nome:">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
+                                       </HBox.margin></Label>
+                                    <Label fx:id="lblEndereco" alignment="TOP_LEFT" prefHeight="115.0" prefWidth="339.0" text="Endereço:" />
                                  </children>
                               </HBox>
-                              <Label fx:id="lblHorario" text="Horário de Funcionamento:">
-                                 <padding>
-                                    <Insets bottom="30.0" />
-                                 </padding>
+                              <Label fx:id="lblHorario" alignment="TOP_LEFT" prefHeight="92.0" prefWidth="259.0" text="Horário de Funcionamento:">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </VBox.margin>
                               </Label>
-                              <Label fx:id="lblStatus" text="Status:" />
+                              <Label fx:id="lblStatus" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="311.0" text="Status:">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" top="10.0" />
+                                 </VBox.margin></Label>
                            </children>
                            <HBox.margin>
                               <Insets bottom="20.0" top="20.0" />

@@ -23,14 +23,14 @@ public class ClienteDao {
 		resultado = comando.executeQuery();
 
 		if (resultado.next()) {
-		    //Email Existe, retorna falso
+
 		    return false;
 		}
 
 		resultado.close();
 		comando.close();
 
-		//Email não existe, continua
+	
 		comando = conexao.prepareStatement(registro);
 
 		comando.setString(1, nome);
@@ -43,7 +43,6 @@ public class ClienteDao {
 		System.out.println("Falha na execucao: " + e.getMessage());
 		return false;
 	    } finally {
-		//Fecha Conexão
 		try {
 		    if (resultado != null){
 			resultado.close();

@@ -83,3 +83,19 @@
     -fx-font-size: 25;
     -fx-font-weight: bold;
 }
+
+#paneImage1{
+    -fx-border-radius: 20;
+}
+
+#lblTitulo{
+        -fx-text-fill: #1a56a8;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+#lblTitulo1{
+        -fx-text-fill: #1a56a8;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}

@@ -126,6 +126,7 @@ public class MedicosController extends BaseController implements Initializable{
 			
 			
 			lblNome.setText("Nome: \n" + labelNome);
+			lblNome.setWrapText(true);
 			lblEndereco.setText("Endereço: \n" + labelEndereco);
 			lblHorario.setText("Horário: \n" + labelHorario);
 			lblStatus.setText("Status: \n" + labelStatus);
