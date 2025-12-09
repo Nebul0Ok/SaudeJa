@@ -131,7 +131,7 @@ public class FarmaciaController extends BaseController implements Initializable{
 			lblNome.setText("Nome: \n" + labelNome);
 			lblEndereco.setText("Endereço: \n" + labelEndereco);
 			lblHorario.setText("Horário: \n" + labelHorario);
-			lblStatus.setText("Status: \n" + labelStatus);
+			lblStatus.setText("Recebe Reciclagem? \n" + labelStatus);
 			
 		    }
 		} catch (Exception e) {

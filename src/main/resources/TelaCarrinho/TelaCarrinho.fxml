@@ -79,7 +79,7 @@
                <center>
                   <HBox prefHeight="491.0" prefWidth="1274.0" BorderPane.alignment="CENTER">
                      <children>
-                        <VBox prefHeight="571.0" prefWidth="622.0">
+                        <VBox prefHeight="571.0" prefWidth="907.0">
                            <children>
                               <Label prefHeight="30.0" prefWidth="319.0" text="Produtos Adicionados:" />
                               <ListView fx:id="lvCarrinho" prefHeight="605.0" prefWidth="622.0" />
