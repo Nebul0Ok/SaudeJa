@@ -110,4 +110,6 @@ public class SceneSwitch {
 	stage.setResizable(true);
     }
     
+    
+    
 }

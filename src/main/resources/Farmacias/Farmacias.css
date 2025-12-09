@@ -3,6 +3,10 @@
     -fx-font-weight: bold;
 }
 
+.label{
+    -fx-text-fill: black;
+}
+
 #pnlPainelPrincipal{
     -fx-background-color: #64dfbe;
 }
@@ -79,4 +83,9 @@
 #pnlContent{
     -fx-background-color: white;
     -fx-background-radius: 50;
+}
+
+#hbPainel{
+    -fx-background-color: white;
+    -fx-background-radius: 20;
 }

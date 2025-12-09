@@ -75,7 +75,7 @@ public class Card {
 	return carta;
     }
     
-     public static HBox medcardGen(String nomeMed, String urlImagem, String tipo, String numTel){
+     public static HBox medcardGen(String nomeMed, String urlImagem, String tipo, String numTel, SceneSwitch sceneSwitch){
 	HBox carta = new HBox(10);
 	carta.setMaxHeight(180);
 	carta.setMaxWidth(360);
@@ -86,25 +86,11 @@ public class Card {
 	     ImageView imageview = new ImageView(imagem);
 	     imageview.setFitHeight(150);
 	     imageview.setFitWidth(150);
+	     imageview.setPreserveRatio(true);
 	     Label nomes = new Label(nomeMed);
 	     Label tipoMed = new Label(tipo);
 	     Label numero = new Label(numTel);
 	     Button marcar = new Button("Marcar Consulta");
-	     
-	     marcar.setOnAction(e -> {
-		 try {
-		Gson gson = new Gson();
-		FileWriter fw = new FileWriter("src/main/resources/UserLogged/MedicoClickado.json");  
-		
-		String objJson = gson.toJson(nomeMed);
-		
-		fw.write(objJson);
-		fw.close();
-		} catch (Exception ex) {
-		    System.out.println("Erro: " + ex.getMessage());
-		}
-	     });
-	     
 	     
 	     VBox layout = new VBox();
 	     layout.setAlignment(Pos.CENTER_RIGHT);
@@ -113,20 +99,21 @@ public class Card {
 	     tipoMed.setStyle("-fx-text-fill:black; -fx-font-size:20;");
 	     numero.setStyle("-fx-text-fill:black;  -fx-font-size:15;");
 	     marcar.setStyle("-fx-font-size:15");
-	     
-	     
+	     	     
 	     carta.getChildren().add(imageview);
 	     
 	     layout.getChildren().add(nomes);
 	     layout.getChildren().add(tipoMed);
 	     layout.getChildren().add(numero);
-	     layout.getChildren().add(marcar);
+
 	     
 	     carta.getChildren().add(layout);
 	     
 	 } catch (Exception e) {
 	     System.out.println("Erro: "+ e.getMessage());
 	 }
+	 
+	 carta.setUserData(nomeMed);
 	 
 	 return carta;
     }

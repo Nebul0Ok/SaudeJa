@@ -10,3 +10,18 @@ public class BaseController {
     }
     
 }
+
+
+/*
+    javafx.application.Platform.runLater(() -> {
+	    Scene scene = btnLogin.getScene();
+	    
+	    Stage stage = (Stage) scene.getWindow();
+	    
+	    stage.setOnCloseRequest(event -> {
+		System.out.println("Hello World");
+	    });
+	    
+	    scene.setOnKeyPressed(this::handleEnter);
+	}); 
+*/

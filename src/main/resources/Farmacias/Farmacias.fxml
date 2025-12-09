@@ -73,6 +73,9 @@
                      </graphic>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
             </HBox>
             <BorderPane prefHeight="591.0" prefWidth="1366.0">
                <left>
@@ -83,9 +86,12 @@
                   </Button>
                </left>
                <center>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <HBox fx:id="hbPainel" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fx:id="ivImagem" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="ivImagem" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </HBox.margin></ImageView>
                         <VBox prefHeight="396.0" prefWidth="649.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0" spacing="200.0">
@@ -101,8 +107,14 @@
                               </Label>
                               <Label fx:id="lblStatus" text="Status:" />
                            </children>
+                           <HBox.margin>
+                              <Insets bottom="20.0" top="20.0" />
+                           </HBox.margin>
                         </VBox>
                      </children>
+                     <BorderPane.margin>
+                        <Insets bottom="20.0" />
+                     </BorderPane.margin>
                   </HBox>
                </center>
             </BorderPane>

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="pnlPrincipal" maxHeight="576.0" maxWidth="1024.0" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="720.0" prefWidth="1366.0" stylesheets="@Medicos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PrincipalController">
+<StackPane fx:id="pnlPrincipal" maxHeight="576.0" maxWidth="1024.0" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#handleOnKeyPressed" prefHeight="720.0" prefWidth="1366.0" stylesheets="@Medicos.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FarmaciaController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <children>
@@ -22,86 +22,101 @@
                   <Button fx:id="btnFechar" mnemonicParsing="false" onMouseClicked="#btnClose" text="X" />
                </children>
             </HBox>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <HBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="1024.0" spacing="40.0" BorderPane.alignment="CENTER">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </HBox>
-               </center>
-               <bottom>
-                  <HBox fx:id="pnlContent" prefHeight="518.0" prefWidth="1316.0" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets left="25.0" right="25.0" top="30.0" />
-                     </BorderPane.margin>
-                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                        <VBox prefHeight="518.0" prefWidth="581.0">
-                           <children>
-                              <Label fx:id="lblNomeFarmacia" text="Nome:" />
-                              <Label fx:id="lblEndereco" text="Endereço:" />
-                              <Label fx:id="lblAvaliacao" text="Avaliação:" />
-                              <Label fx:id="lblStatus" text="Status:" />
-                              <Label fx:id="lblHorario" text="Whatsapp:" />
-                           </children>
-                        </VBox>
-                     </children></HBox>
-               </bottom>
-               <top>
-                  <HBox fx:id="pnlSuperior" alignment="CENTER" prefHeight="80.0" prefWidth="1024.0" spacing="35.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Button fx:id="btnMais" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/menu.jpg" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+            <HBox fx:id="pnlSuperior" alignment="CENTER" prefHeight="80.0" prefWidth="1024.0" spacing="35.0">
+               <children>
+                  <Button fx:id="btnMais" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Icons/logo.png" />
+                              <Image url="@../Icons/menu.jpg" />
                            </image>
                         </ImageView>
-                        <Label text="Saúde Já">
+                     </graphic>
+                  </Button>
+                  <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblLogo" text="Saúde Já">
+                     <HBox.margin>
+                        <Insets left="-30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="tfPesquisar" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="600.0" promptText="Pesquisar" />
+                  <Button fx:id="btnCarrinho" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/shopCart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="lblUsername" text="Nome de Usuario" />
+                  <Button fx:id="btnIcone" mnemonicParsing="false">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/userIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <BorderPane prefHeight="591.0" prefWidth="1366.0">
+               <left>
+                  <Button fx:id="btnReturn" mnemonicParsing="false" text="&lt;" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="300.0" left="20.0" right="20.0" />
+                     </BorderPane.margin>
+                  </Button>
+               </left>
+               <center>
+                  <HBox fx:id="hbPainel" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fx:id="ivImagem" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets left="-30.0" />
+                              <Insets left="30.0" right="30.0" />
+                           </HBox.margin></ImageView>
+                        <VBox prefHeight="396.0" prefWidth="649.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="200.0">
+                                 <children>
+                                    <Label fx:id="lblNome" prefHeight="30.0" prefWidth="353.0" text="Nome:" />
+                                    <Label fx:id="lblEndereco" text="Endereço:" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="lblHorario" text="Horário de Funcionamento:">
+                                 <padding>
+                                    <Insets bottom="30.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="lblStatus" text="Status:" />
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="20.0" top="20.0" />
                            </HBox.margin>
-                        </Label>
-                        <TextField fx:id="tfPesquisar" alignment="CENTER_RIGHT" prefHeight="44.0" prefWidth="600.0" promptText="Pesquisar" />
-                        <Button fx:id="btnCarrinho" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/shopCart.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Label fx:id="lblUsername" text="Nome de Usuario" />
-                        <Button fx:id="btnIcone" mnemonicParsing="false">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Icons/userIcon.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        </VBox>
                      </children>
+                     <BorderPane.margin>
+                        <Insets bottom="20.0" right="20.0" />
+                     </BorderPane.margin>
                   </HBox>
-               </top>
+               </center>
             </BorderPane>
          </children>
       </VBox>

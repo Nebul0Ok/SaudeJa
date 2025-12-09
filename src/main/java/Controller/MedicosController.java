@@ -24,7 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 
-public class FarmaciaController extends BaseController implements Initializable{
+public class MedicosController extends BaseController implements Initializable{
 
     @FXML
     private Button btnCarrinho;
@@ -102,31 +102,29 @@ public class FarmaciaController extends BaseController implements Initializable{
 	    
 	    nomeProd = produto.getAsString();
 	    
+	    System.out.println("Buscando: " + nomeProd);
+	    
 	    try (Connection conexao = DriverManager.getConnection("jdbc:sqlite:BancoDados.db");
-	         PreparedStatement comando = conexao.prepareStatement("SELECT * FROM farmacias WHERE nome = ?")){
+	         PreparedStatement comando = conexao.prepareStatement("SELECT * FROM medico WHERE nome = ?")){
 		
 		comando.setString(1, nomeProd);
 	    
 		try (ResultSet rs = comando.executeQuery()){
 		    while(rs.next()){
-			String URL = rs.getString("URL");
-			String labelNome = rs.getString("Nome");
+			//String URL = rs.getString("URL");
+			String URL = "src/main/resources/Icons/userIcon.png";
+			
+			String labelNome = rs.getString("nome");
 			String labelEndereco = rs.getString("Endereco");
 			String labelHorario = rs.getString("Horarios_Funcionamento");
 			String labelStatus = rs.getString("Status");
 			
-			Image imagem = new Image(URL);
+			//Image imagem = new Image(URL);
 			
-			ivImagem.setImage(imagem);
-			ivImagem.setFitWidth(500);
-			ivImagem.setFitHeight(500);
+			//ivImagem.setImage(imagem);
+			//ivImagem.setFitWidth(500);
+			//ivImagem.setFitHeight(500);
 			
-			Rectangle clip = new Rectangle(ivImagem.getFitWidth(), ivImagem.getFitHeight());
-			
-			clip.setArcWidth(30);
-			clip.setArcHeight(30);
-			
-			ivImagem.setClip(clip);
 			
 			lblNome.setText("Nome: \n" + labelNome);
 			lblEndereco.setText("Endereço: \n" + labelEndereco);

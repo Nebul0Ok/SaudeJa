@@ -14,6 +14,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import Classes.Card;
+import com.google.gson.Gson;
+import java.io.FileWriter;
 
 public class AgendarController extends BaseController implements Initializable{
     boolean isFS = true;
@@ -116,11 +118,41 @@ public class AgendarController extends BaseController implements Initializable{
 	String nomeUsuario = LoggedUser.userName();
 	lblUsername.setText(nomeUsuario);
 	
-	HBox teste= Card.medcardGen("Doutor 1", "/Icons/userIcon.png", "Cardiologista", "+55 9 99999-9999");
-	HBox teste2= Card.medcardGen("Doutor 2", "/Icons/userIcon.png", "Oftalmologista", "+55 5 5555-5555");
+	HBox card1= Card.medcardGen("Dr. Cássio Marques de Araújo", "/Icons/medico1.jpg", "Cardiologista", "+55 9 99999-9999", sceneSwitch);
+	HBox card2= Card.medcardGen("Dra. Mônica de Souza", "/Icons/medico2.jpg", "Oftalmologista", "+55 5 5555-5555", sceneSwitch);
+	HBox card3= Card.medcardGen("Dr. Carlos Frederico Médici", "/Icons/medico3.jpg", "Oftalmologista", "+55 5 5555-5555", sceneSwitch);
+	HBox card4= Card.medcardGen("Dra. Magali Lima", "/Icons/medico4.jpg", "Oftalmologista", "+55 5 5555-5555", sceneSwitch);
 	
-	hbContent.getChildren().add(teste);
-	hbContent.getChildren().add(teste2);
+	card1.setOnMouseClicked(e -> {
+		 Gson gson = new Gson();
+		 boolean save = false;
+		 String nome = (String) card1.getUserData();
+		 
+		 
+		 try (FileWriter fr = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
+		     
+		     String json = gson.toJson(nome);
+		     
+		     fr.write(json);
+		     
+		     save = true;
+		     
+		 } catch (Exception ex) {
+		     System.out.println("Erro: " + ex.getMessage());
+		 }
+		 
+		 if(save){
+		     sceneSwitch.telaMedico();
+		 }
+	});
+	
+	hbContent.getChildren().add(card1);
+	hbContent.getChildren().add(card2);
+	hbContent.getChildren().add(card3);
+	hbContent.getChildren().add(card4);
+	
+
+	
     }
     
 }

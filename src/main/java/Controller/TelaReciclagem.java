@@ -140,6 +140,7 @@ public class TelaReciclagem extends BaseController implements Initializable{
     @FXML
     void loja1(ActionEvent event) {
 	Gson gson = new Gson();
+	boolean save = false;
 	
 	try(FileWriter fw = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
 	    String teste = "Droga Raia";
@@ -147,16 +148,22 @@ public class TelaReciclagem extends BaseController implements Initializable{
 	    
 	    fw.write(json);
 	    
-	    sceneSwitch.telaFarmacia();
+	    save = true;
 	    
 	}catch (Exception e) {
 	    System.out.println("Erro: " + e.getMessage());
 	}
+	
+	if(save){
+	    sceneSwitch.telaFarmacia();
+	}
+	
     }
 
     @FXML
     void loja2(ActionEvent event) {
 	Gson gson = new Gson();
+	boolean save = false;
 	
 	try(FileWriter fw = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
 	    String teste = "Drogaria Popular";
@@ -164,14 +171,21 @@ public class TelaReciclagem extends BaseController implements Initializable{
 	    
 	    fw.write(json);
 	    
+	    save = true;
+	    
 	}catch (Exception e) {
 	    System.out.println("Erro: " + e.getMessage());
+	}
+	
+	if(save){
+	    sceneSwitch.telaFarmacia();
 	}
     }
 
     @FXML
     void loja3(ActionEvent event) {
 	Gson gson = new Gson();
+	boolean save = false;
 	
 	try(FileWriter fw = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
 	    String teste = "Rede Saúde";
@@ -179,14 +193,21 @@ public class TelaReciclagem extends BaseController implements Initializable{
 	    
 	    fw.write(json);
 	    
+	    save = true;
+	    
 	}catch (Exception e) {
 	    System.out.println("Erro: " + e.getMessage());
+	}
+	
+	if(save){
+	    sceneSwitch.telaFarmacia();
 	}
     }
 
     @FXML
     void loja4(ActionEvent event) {
 	Gson gson = new Gson();
+	boolean save = false;
 	
 	try(FileWriter fw = new FileWriter("src/main/resources/UserLogged/Clicado.json")){
 	    String teste = "Pague Pouco";
@@ -194,9 +215,16 @@ public class TelaReciclagem extends BaseController implements Initializable{
 	    
 	    fw.write(json);
 	    
+	    save = true;
+	    
 	}catch (Exception e) {
 	    System.out.println("Erro: " + e.getMessage());
 	}
+	
+	if(save){
+	    sceneSwitch.telaFarmacia();
+	}
+	
     }
 
     @Override
