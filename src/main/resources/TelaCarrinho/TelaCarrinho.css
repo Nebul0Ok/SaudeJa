@@ -1,0 +1,91 @@
+.root{
+    -fx-font-size:20px;
+    -fx-font-weight: bold;
+}
+
+#pnlPainelPrincipal{
+    -fx-background-color: #64dfbe;
+}
+
+.button{
+    -fx-background-color: #64dfbe;
+    -fx-text-fill:white;
+    -fx-background-radius: 20;
+}
+
+.button:hover{
+    -fx-background-color: #91ebd2;
+}
+
+
+
+#tfPesquisar{
+    -fx-background-radius: 20;
+}
+
+#pnlSuperior{
+    -fx-background-color: #64dfbe;
+}
+
+#btnMedicamentos{
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+
+#btnReciclagem{
+    -fx-background-color: #c6f4e7;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnReciclagem:hover{
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#btnAgendar{
+    -fx-background-color: #c6f4e7;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnAgendar:hover{
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#btnSaibaMais{
+    -fx-background-color: #c6f4e7;
+    -fx-text-fill:#1a56a8;
+}
+
+#btnSaibaMais:hover{
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#btnLeft{
+
+    -fx-font-size:40;
+    -fx-background-radius: 50;
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#btnRight{
+    -fx-font-size:40;
+    -fx-background-radius: 50;
+    -fx-background-color:#1a56a8;
+    -fx-text-fill:#c6f4e7;
+}
+
+#lblLogo{
+    -fx-text-fill:white;
+}
+
+#lblUsername{
+    -fx-text-fill:white;
+}
+
+#lblCarrinho{
+    -fx-font-size:40;
+}

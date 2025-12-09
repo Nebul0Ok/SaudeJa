@@ -1,24 +1,17 @@
 package Controller;
 
-//Imports das minhas classes
 import Classes.Card;
 import Classes.LoggedUser;
 import Classes.Produto;
 import Utility.Keybinds;
-
-//Imports do SQL
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-//Imports de utildades
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-//Imports do javafx
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -185,6 +178,8 @@ public class PrincipalController extends BaseController implements Initializable
 	
 	tfPesquisar.setOnKeyPressed(this::handleEnter);
 	
+	btnCarrinho.setOnMouseClicked(event -> carrinhoClick());
+	
 	
     } 
     
@@ -341,6 +336,10 @@ public class PrincipalController extends BaseController implements Initializable
 	
 	
 	    
+    }
+    
+    public void carrinhoClick() {
+	sceneSwitch.telaCarrinho();
     }
     
     

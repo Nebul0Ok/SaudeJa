@@ -103,7 +103,7 @@ public class SceneSwitch {
     }
     
     public void telaCarrinho(){
-	newSc("/TelaCarrinho/carrinho.fxml", "/TelaCarrinho/carrinho.css");
+	newSc("/TelaCarrinho/TelaCarrinho.fxml", "/TelaCarrinho/TelaCarrinho.css");
 	stage.centerOnScreen();
 	stage.setFullScreenExitHint("");
 	stage.setFullScreen(true);

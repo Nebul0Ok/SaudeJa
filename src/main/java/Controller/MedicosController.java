@@ -111,19 +111,18 @@ public class MedicosController extends BaseController implements Initializable{
 	    
 		try (ResultSet rs = comando.executeQuery()){
 		    while(rs.next()){
-			//String URL = rs.getString("URL");
-			String URL = "src/main/resources/Icons/userIcon.png";
+			String URL = rs.getString("URL");
 			
 			String labelNome = rs.getString("nome");
 			String labelEndereco = rs.getString("Endereco");
 			String labelHorario = rs.getString("Horarios_Funcionamento");
 			String labelStatus = rs.getString("Status");
 			
-			//Image imagem = new Image(URL);
+			Image imagem = new Image(URL);
 			
-			//ivImagem.setImage(imagem);
-			//ivImagem.setFitWidth(500);
-			//ivImagem.setFitHeight(500);
+			ivImagem.setImage(imagem);
+			ivImagem.setFitWidth(500);
+			ivImagem.setFitHeight(500);
 			
 			
 			lblNome.setText("Nome: \n" + labelNome);
